@@ -1,0 +1,82 @@
+############# config ##################
+#
+set base_path           /var/spool/apt-mirror
+#
+# set mirror_path       $base_path/mirror
+# set skel_path         $base_path/skel
+# set var_path          $base_path/var
+# set cleanscript       $var_path/clean.sh
+set defaultarch         amd64
+set postmirror_script   $var_path/postmirror.sh
+set run_postmirror      1
+set nthreads            1
+set _tilde              0
+set limit_rate          10m
+#
+############# end config ##############
+
+##
+## Debian testing
+##
+
+deb     http://ftp.jp.debian.org/debian testing                       main contrib non-free
+deb     http://ftp.jp.debian.org/debian testing main/debian-installer main contrib non-free
+deb     http://ftp.jp.debian.org/debian testing-updates               main contrib non-free
+deb     http://ftp.jp.debian.org/debian testing-backports             main contrib non-free
+deb     http://ftp.jp.debian.org/debian testing-proposed-updates      main contrib non-free
+
+deb-src http://ftp.jp.debian.org/debian testing                       main contrib non-free
+deb-src http://ftp.jp.debian.org/debian testing-updates               main contrib non-free
+deb-src http://ftp.jp.debian.org/debian testing-backports             main contrib non-free
+deb-src http://ftp.jp.debian.org/debian testing-proposed-updates      main contrib non-free
+
+
+##
+## Debian 11
+##
+
+deb     http://ftp.jp.debian.org/debian bullseye                       main contrib non-free
+deb     http://ftp.jp.debian.org/debian bullseye main/debian-installer main contrib non-free
+deb     http://ftp.jp.debian.org/debian bullseye-updates               main contrib non-free
+deb     http://ftp.jp.debian.org/debian bullseye-backports             main contrib non-free
+deb     http://ftp.jp.debian.org/debian bullseye-proposed-updates      main contrib non-free
+
+deb-src http://ftp.jp.debian.org/debian bullseye                       main contrib non-free
+deb-src http://ftp.jp.debian.org/debian bullseye-updates               main contrib non-free
+deb-src http://ftp.jp.debian.org/debian bullseye-backports             main contrib non-free
+deb-src http://ftp.jp.debian.org/debian bullseye-proposed-updates      main contrib non-free
+
+
+##
+## Debian 10
+##
+
+deb     http://ftp.jp.debian.org/debian buster                       main contrib non-free
+deb     http://ftp.jp.debian.org/debian buster main/debian-installer main contrib non-free
+deb     http://ftp.jp.debian.org/debian buster-updates               main contrib non-free
+deb     http://ftp.jp.debian.org/debian buster-backports             main contrib non-free
+deb     http://ftp.jp.debian.org/debian buster-proposed-updates      main contrib non-free
+
+deb-src http://ftp.jp.debian.org/debian buster                       main contrib non-free
+deb-src http://ftp.jp.debian.org/debian buster-updates               main contrib non-free
+deb-src http://ftp.jp.debian.org/debian buster-backports             main contrib non-free
+deb-src http://ftp.jp.debian.org/debian buster-proposed-updates      main contrib non-free
+
+
+##
+## Debian 9
+##
+
+deb     http://ftp.jp.debian.org/debian stretch                       main contrib non-free
+deb     http://ftp.jp.debian.org/debian stretch main/debian-installer main contrib non-free
+deb     http://ftp.jp.debian.org/debian stretch-updates               main contrib non-free
+deb     http://ftp.jp.debian.org/debian stretch-backports             main contrib non-free
+deb     http://ftp.jp.debian.org/debian stretch-proposed-updates      main contrib non-free
+
+deb-src http://ftp.jp.debian.org/debian stretch                       main contrib non-free
+deb-src http://ftp.jp.debian.org/debian stretch-updates               main contrib non-free
+deb-src http://ftp.jp.debian.org/debian stretch-backports             main contrib non-free
+deb-src http://ftp.jp.debian.org/debian stretch-proposed-updates      main contrib non-free
+
+
+clean http://ftp.jp.debian.org/debian
