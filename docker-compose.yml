@@ -14,21 +14,21 @@ services:
     build:
       context: apt/ubuntu
     volumes:
-      - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror
+      - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror/ftp.jaist.ac.jp/ubuntu
 
   apt-debian:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/debian-mirror:latest
     build:
       context: apt/debian
     volumes:
-      - /srv/mirror/debian:/var/spool/apt-mirror/mirror
+      - /srv/mirror/debian:/var/spool/apt-mirror/mirror/ftp.jp.debian.org/debian
 
   apt-raspberrypi:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/raspberrypi-mirror:latest
     build:
       context: apt/raspberrypi
     volumes:
-      - /srv/mirror/raspberrypi:/var/spool/apt-mirror/mirror
+      - /srv/mirror/raspberrypi/raspbian:/var/spool/apt-mirror/mirror/ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian
 
   nginx-apt:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
@@ -48,4 +48,4 @@ services:
     ports:
       - 10.0.5.12:80:80
     volumes:
-      - /srv/mirror/archlinux:/usr/share/nginx/pacman:ro
+      - /srv/mirror/archlinux:/usr/share/nginx/pacman/archlinux:ro
