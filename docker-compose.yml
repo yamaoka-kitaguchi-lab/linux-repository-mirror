@@ -14,14 +14,14 @@ services:
     build:
       context: apt/ubuntu
     volumes:
-      - /srv/mirror/apt/ubuntu:/var/spool/apt-mirror/mirror
+      - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror
 
   apt-raspberrypi:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/raspberrypi-mirror:latest
     build:
       context: apt/raspberrypi
     volumes:
-      - /srv/mirror/apt/raspberrypi:/var/spool/apt-mirror/mirror
+      - /srv/mirror/raspberrypi:/var/spool/apt-mirror/mirror
 
   nginx:
     image: nginx:alpine
