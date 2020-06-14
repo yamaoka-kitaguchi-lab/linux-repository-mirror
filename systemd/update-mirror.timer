@@ -1,0 +1,8 @@
+[Unit]
+Description=Update local mirrors
+
+[Timer]
+OnUnitActiveSec=30m
+
+[Install]
+WantedBy=timers.target

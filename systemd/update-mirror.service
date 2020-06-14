@@ -1,0 +1,9 @@
+[Unit]
+Description=Update local mirrors
+
+[Service]
+Type=simple
+ExecStart=/bin/sh /opt/linux-repository-mirror/update-mirror.sh
+
+[Install]
+WantedBy=multi-user.target
