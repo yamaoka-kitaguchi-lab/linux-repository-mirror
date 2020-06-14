@@ -1,4 +1,3 @@
-#Exclude i686 Packages
 */os/i686
 pool/*/*-i686.pkg.tar.xz
 pool/*/*-i686.pkg.tar.gz
