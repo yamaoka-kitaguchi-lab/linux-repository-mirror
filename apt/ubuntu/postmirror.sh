@@ -9,8 +9,8 @@ bionic="bionic bionic-updates bionic-backports bionic-security bionic-proposed"
 REPOS="${focal} ${bionic}"
 
 for repo in $REPOS; do
-    ${RSYNC} ${SOURCE}/repos/${repo}/main/i18n/       ${TARGET}/repos/${repo}/main/i18n/
-    ${RSYNC} ${SOURCE}/repos/${repo}/restricted/i18n/ ${TARGET}/repos/${repo}/restricted/i18n/
-    ${RSYNC} ${SOURCE}/repos/${repo}/universe/i18n/   ${TARGET}/repos/${repo}/universe/i18n/
-    ${RSYNC} ${SOURCE}/repos/${repo}/multiverse/i18n/ ${TARGET}/repos/${repo}/multiverse/i18n/
+    ${RSYNC} ${SOURCE}/dists/${repo}/main/i18n/       ${TARGET}/dists/${repo}/main/i18n/
+    ${RSYNC} ${SOURCE}/dists/${repo}/restricted/i18n/ ${TARGET}/dists/${repo}/restricted/i18n/
+    ${RSYNC} ${SOURCE}/dists/${repo}/universe/i18n/   ${TARGET}/dists/${repo}/universe/i18n/
+    ${RSYNC} ${SOURCE}/dists/${repo}/multiverse/i18n/ ${TARGET}/dists/${repo}/multiverse/i18n/
 done

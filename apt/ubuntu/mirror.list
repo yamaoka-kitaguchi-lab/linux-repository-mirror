@@ -32,6 +32,12 @@ deb-i386  http://ftp.jaist.ac.jp/ubuntu focal-backports main restricted universe
 deb-i386  http://ftp.jaist.ac.jp/ubuntu focal-security  main restricted universe multiverse
 deb-i386  http://ftp.jaist.ac.jp/ubuntu focal-proposed  main restricted universe multiverse
 
+deb-src   http://ftp.jaist.ac.jp/ubuntu focal           main restricted universe multiverse
+deb-src   http://ftp.jaist.ac.jp/ubuntu focal-updates   main restricted universe multiverse
+deb-src   http://ftp.jaist.ac.jp/ubuntu focal-backports main restricted universe multiverse
+deb-src   http://ftp.jaist.ac.jp/ubuntu focal-security  main restricted universe multiverse
+deb-src   http://ftp.jaist.ac.jp/ubuntu focal-proposed  main restricted universe multiverse
+
 
 ##
 ## Ubuntu 18.04 LTS
@@ -48,6 +54,12 @@ deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-updates   main restricted univers
 deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-security  main restricted universe multiverse
 deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-backports main restricted universe multiverse
 deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-proposed  main restricted universe multiverse
+
+deb-src   http://ftp.jaist.ac.jp/ubuntu bionic           main restricted universe multiverse
+deb-src   http://ftp.jaist.ac.jp/ubuntu bionic-updates   main restricted universe multiverse
+deb-src   http://ftp.jaist.ac.jp/ubuntu bionic-security  main restricted universe multiverse
+deb-src   http://ftp.jaist.ac.jp/ubuntu bionic-backports main restricted universe multiverse
+deb-src   http://ftp.jaist.ac.jp/ubuntu bionic-proposed  main restricted universe multiverse
 
 
 clean http://ftp.jaist.ac.jp/ubuntu

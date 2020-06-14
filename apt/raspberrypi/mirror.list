@@ -31,10 +31,10 @@ set limit_rate          10m
 deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian stable       main contrib non-free rpi firmware
 deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian oldstable    main contrib non-free rpi firmware
 deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian oldoldstable main contrib non-free rpi firmware
+deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian bullseye     main contrib non-free rpi firmware
+deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian buster       main contrib non-free rpi firmware
 deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian stretch      main contrib non-free rpi firmware
 deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian jessie       main contrib non-free rpi firmware
-deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian buster       main contrib non-free rpi firmware
-deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian bullseye     main contrib non-free rpi firmware
 
 # clean http://ftp.jaist.ac.jp/raspbian
 clean http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian
