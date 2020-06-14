@@ -6,7 +6,7 @@ set base_path           /var/spool/apt-mirror
 # set skel_path         $base_path/skel
 # set var_path          $base_path/var
 # set cleanscript       $var_path/clean.sh
-set defaultarch         amd64
+set defaultarch         armhf
 # set postmirror_script $var_path/postmirror.sh
 # set run_postmirror    0
 set nthreads            1
@@ -19,14 +19,22 @@ set limit_rate          10m
 ##
 ## Raspbian
 ##
-deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi
 
+# deb http://ftp.jaist.ac.jp/raspbian stable       main contrib non-free rpi firmware
+# deb http://ftp.jaist.ac.jp/raspbian oldstable    main contrib non-free rpi firmware
+# deb http://ftp.jaist.ac.jp/raspbian oldoldstable main contrib non-free rpi firmware
+# deb http://ftp.jaist.ac.jp/raspbian stretch      main contrib non-free rpi firmware
+# deb http://ftp.jaist.ac.jp/raspbian jessie       main contrib non-free rpi firmware
+# deb http://ftp.jaist.ac.jp/raspbian buster       main contrib non-free rpi firmware
+# deb http://ftp.jaist.ac.jp/raspbian bullseye     main contrib non-free rpi firmware
 
-##
-## Debian
-##
-deb http://archive.raspberrypi.org/debian/ stretch main ui
+deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian stable       main contrib non-free rpi firmware
+deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian oldstable    main contrib non-free rpi firmware
+deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian oldoldstable main contrib non-free rpi firmware
+deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian stretch      main contrib non-free rpi firmware
+deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian jessie       main contrib non-free rpi firmware
+deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian buster       main contrib non-free rpi firmware
+deb http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian bullseye     main contrib non-free rpi firmware
 
-
-clean http://archive.raspberrypi.org/debian
-clean http://mirrordirector.raspbian.org/raspbian
+# clean http://ftp.jaist.ac.jp/raspbian
+clean http://ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian
