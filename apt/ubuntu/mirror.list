@@ -48,3 +48,6 @@ deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-updates   main restricted univers
 deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-security  main restricted universe multiverse
 deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-backports main restricted universe multiverse
 deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-proposed  main restricted universe multiverse
+
+
+clean http://ftp.jaist.ac.jp/ubuntu
