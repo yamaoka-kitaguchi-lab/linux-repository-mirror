@@ -22,6 +22,8 @@ COPY --from=builder /usr/src/ngx-fancyindex-theme/Nginx-Fancyindex-Theme-light /
 COPY --from=builder /usr/src/ngx-fancyindex-theme/Nginx-Fancyindex-Theme-dark /usr/share/nginx/Nginx-Fancyindex-Theme-dark
 COPY nginx.conf /etc/nginx/nginx.conf
 
+RUN rm -rf /usr/share/nginx/html
+
 EXPOSE 80
 STOPSIGNAL SIGTERM
 CMD ["nginx", "-g", "daemon off;"]
