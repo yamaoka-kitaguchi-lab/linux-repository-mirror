@@ -20,46 +20,46 @@ set limit_rate          10m
 ## Ubuntu 20.04 LTS
 ##
 
-deb-amd64 http://ftp.jaist.ac.jp/ubuntu focal           main restricted universe multiverse
-deb-amd64 http://ftp.jaist.ac.jp/ubuntu focal-updates   main restricted universe multiverse
-deb-amd64 http://ftp.jaist.ac.jp/ubuntu focal-backports main restricted universe multiverse
-deb-amd64 http://ftp.jaist.ac.jp/ubuntu focal-security  main restricted universe multiverse
-deb-amd64 http://ftp.jaist.ac.jp/ubuntu focal-proposed  main restricted universe multiverse
+deb-amd64 http://ubuntutym.u-toyama.ac.jp/ubuntu focal           main restricted universe multiverse
+deb-amd64 http://ubuntutym.u-toyama.ac.jp/ubuntu focal-updates   main restricted universe multiverse
+deb-amd64 http://ubuntutym.u-toyama.ac.jp/ubuntu focal-backports main restricted universe multiverse
+deb-amd64 http://ubuntutym.u-toyama.ac.jp/ubuntu focal-security  main restricted universe multiverse
+deb-amd64 http://ubuntutym.u-toyama.ac.jp/ubuntu focal-proposed  main restricted universe multiverse
 
-deb-i386  http://ftp.jaist.ac.jp/ubuntu focal           main restricted universe multiverse
-deb-i386  http://ftp.jaist.ac.jp/ubuntu focal-updates   main restricted universe multiverse
-deb-i386  http://ftp.jaist.ac.jp/ubuntu focal-backports main restricted universe multiverse
-deb-i386  http://ftp.jaist.ac.jp/ubuntu focal-security  main restricted universe multiverse
-deb-i386  http://ftp.jaist.ac.jp/ubuntu focal-proposed  main restricted universe multiverse
+deb-i386  http://ubuntutym.u-toyama.ac.jp/ubuntu focal           main restricted universe multiverse
+deb-i386  http://ubuntutym.u-toyama.ac.jp/ubuntu focal-updates   main restricted universe multiverse
+deb-i386  http://ubuntutym.u-toyama.ac.jp/ubuntu focal-backports main restricted universe multiverse
+deb-i386  http://ubuntutym.u-toyama.ac.jp/ubuntu focal-security  main restricted universe multiverse
+deb-i386  http://ubuntutym.u-toyama.ac.jp/ubuntu focal-proposed  main restricted universe multiverse
 
-deb-src   http://ftp.jaist.ac.jp/ubuntu focal           main restricted universe multiverse
-deb-src   http://ftp.jaist.ac.jp/ubuntu focal-updates   main restricted universe multiverse
-deb-src   http://ftp.jaist.ac.jp/ubuntu focal-backports main restricted universe multiverse
-deb-src   http://ftp.jaist.ac.jp/ubuntu focal-security  main restricted universe multiverse
-deb-src   http://ftp.jaist.ac.jp/ubuntu focal-proposed  main restricted universe multiverse
+deb-src   http://ubuntutym.u-toyama.ac.jp/ubuntu focal           main restricted universe multiverse
+deb-src   http://ubuntutym.u-toyama.ac.jp/ubuntu focal-updates   main restricted universe multiverse
+deb-src   http://ubuntutym.u-toyama.ac.jp/ubuntu focal-backports main restricted universe multiverse
+deb-src   http://ubuntutym.u-toyama.ac.jp/ubuntu focal-security  main restricted universe multiverse
+deb-src   http://ubuntutym.u-toyama.ac.jp/ubuntu focal-proposed  main restricted universe multiverse
 
 
 ##
 ## Ubuntu 18.04 LTS
 ##
 
-deb-amd64 http://ftp.jaist.ac.jp/ubuntu bionic           main restricted universe multiverse
-deb-amd64 http://ftp.jaist.ac.jp/ubuntu bionic-updates   main restricted universe multiverse
-deb-amd64 http://ftp.jaist.ac.jp/ubuntu bionic-security  main restricted universe multiverse
-deb-amd64 http://ftp.jaist.ac.jp/ubuntu bionic-backports main restricted universe multiverse
-deb-amd64 http://ftp.jaist.ac.jp/ubuntu bionic-proposed  main restricted universe multiverse
+deb-amd64 http://ubuntutym.u-toyama.ac.jp/ubuntu bionic           main restricted universe multiverse
+deb-amd64 http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-updates   main restricted universe multiverse
+deb-amd64 http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-security  main restricted universe multiverse
+deb-amd64 http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-backports main restricted universe multiverse
+deb-amd64 http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-proposed  main restricted universe multiverse
 
-deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic           main restricted universe multiverse
-deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-updates   main restricted universe multiverse
-deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-security  main restricted universe multiverse
-deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-backports main restricted universe multiverse
-deb-i386  http://ftp.jaist.ac.jp/ubuntu bionic-proposed  main restricted universe multiverse
+deb-i386  http://ubuntutym.u-toyama.ac.jp/ubuntu bionic           main restricted universe multiverse
+deb-i386  http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-updates   main restricted universe multiverse
+deb-i386  http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-security  main restricted universe multiverse
+deb-i386  http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-backports main restricted universe multiverse
+deb-i386  http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-proposed  main restricted universe multiverse
 
-deb-src   http://ftp.jaist.ac.jp/ubuntu bionic           main restricted universe multiverse
-deb-src   http://ftp.jaist.ac.jp/ubuntu bionic-updates   main restricted universe multiverse
-deb-src   http://ftp.jaist.ac.jp/ubuntu bionic-security  main restricted universe multiverse
-deb-src   http://ftp.jaist.ac.jp/ubuntu bionic-backports main restricted universe multiverse
-deb-src   http://ftp.jaist.ac.jp/ubuntu bionic-proposed  main restricted universe multiverse
+deb-src   http://ubuntutym.u-toyama.ac.jp/ubuntu bionic           main restricted universe multiverse
+deb-src   http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-updates   main restricted universe multiverse
+deb-src   http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-security  main restricted universe multiverse
+deb-src   http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-backports main restricted universe multiverse
+deb-src   http://ubuntutym.u-toyama.ac.jp/ubuntu bionic-proposed  main restricted universe multiverse
 
 
-clean http://ftp.jaist.ac.jp/ubuntu
+clean http://ubuntutym.u-toyama.ac.jp/ubuntu/
