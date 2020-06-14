@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SOURCE='rsync://ftp.jaist.ac.jp/pub/Linux/ArchLinux/'
-DEST='/archlinux-mirror'
+DEST='/var/spool/pacman-mirror'
 REPOS='iso core extra community multilib'
 RSYNC_OPTS="-rtlHq --delete-after --delay-updates --copy-links --safe-links --max-delete=1000 --delete-excluded --exclude=.*"
 RSYNC_EXCLUDE_OPT=""

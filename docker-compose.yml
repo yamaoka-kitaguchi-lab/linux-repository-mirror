@@ -1,29 +1,20 @@
 version: '3'
 
 services:
-  archlinux:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/archlinux-mirror:latest
+  pacman:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/pacman-mirror:latest
     build:
       context: pacman
     volumes:
       - ./pacman/exclude.txt:/exclude.txt
-      - /srv/mirror/archlinux:/archlinux-mirror
+      - /srv/mirror/pacman:/var/spool/pacman-mirror
 
-  ubuntu-focal:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/ubuntu-focal-mirror:latest
+  apt:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/apt-mirror:latest
     build:
       context: apt
-      dockerfile: Dockerfile.ubuntu-focal
     volumes:
-      - /srv/mirror/ubuntu/focal:/ubuntu-mirror
-
-  ubuntu-bionic:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/ubuntu-bionic-mirror:latest
-    build:
-      context: apt
-      dockerfile: Dockerfile.ubuntu-bionic
-    volumes:
-      - /srv/mirror/ubuntu/bionic:/ubuntu-mirror
+      - /srv/mirror/apt:/var/spool/apt-mirror
 
   nginx:
     image: nginx:alpine
