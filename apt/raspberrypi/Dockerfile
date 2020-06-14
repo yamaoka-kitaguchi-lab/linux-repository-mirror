@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+ENV DEBIAN_FRONTEND noninteractive
 
 COPY mirror.list /etc/apt/mirror.list
 
