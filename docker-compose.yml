@@ -2,19 +2,19 @@ version: '3'
 
 services:
   pacman:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/pacman-mirror:latest
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/archlinux-mirror:latest
     build:
       context: pacman
     volumes:
       - ./pacman/exclude.txt:/exclude.txt
-      - /srv/mirror/pacman:/var/spool/pacman-mirror
+      - /srv/mirror/archlinux:/var/spool/pacman-mirror
 
-  apt:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/apt-mirror:latest
+  apt-ubuntu:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/ubuntu-mirror:latest
     build:
-      context: apt
+      context: apt/ubuntu
     volumes:
-      - /srv/mirror/apt:/var/spool/apt-mirror
+      - /srv/mirror/apt/ubuntu:/var/spool/apt-mirror/mirror
 
   nginx:
     image: nginx:alpine
