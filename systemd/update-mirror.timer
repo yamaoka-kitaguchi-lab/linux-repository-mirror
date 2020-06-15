@@ -2,7 +2,7 @@
 Description=Update local mirrors
 
 [Timer]
-OnUnitActiveSec=30m
+OnUnitActiveSec=20m
 
 [Install]
 WantedBy=timers.target
