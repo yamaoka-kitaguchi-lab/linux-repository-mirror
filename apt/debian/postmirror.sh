@@ -1,5 +1,8 @@
 #!/bin/bash
 
+## Debian worldwide mirror sites
+## https://www.debian.org/mirror/list-full
+
 RSYNC="rsync --recursive --times --links --hard-links --delete --delete-after"
 SOURCE="rsync://hanzubon.jp/debian"
 TARGET="/var/spool/apt-mirror/mirror/ftp.jp.debian.org/debian"
