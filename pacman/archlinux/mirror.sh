@@ -4,7 +4,7 @@
 # SOURCE='rsync://ftp.nara.wide.ad.jp/pub/Linux/archlinux/'
 SOURCE='rsync://jpn.mirror.pkgbuild.com/packages/'
 DEST='/var/spool/pacman-mirror'
-REPOS='iso core extra community multilib community-staging multilib-staging community-testing multilib-testing staging'
+REPOS='iso core extra community multilib community-staging multilib-staging community-testing multilib-testing staging testing pool gnome-unstable kde-unstable lastsync lastupdate'
 RSYNC_OPTS="-rtlHq --delete-after --delay-updates --copy-links --safe-links --max-delete=1000 --delete-excluded --exclude=.*"
 RSYNC_EXCLUDE_OPT=""
 EXCLUDE_FILE="/exclude.txt"
