@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RSYNC="rsync --recursive --times --links --hard-links --delete --delete-after"
-SOURCE="rsync://ftp.jp.debian.org/debian"
+SOURCE="rsync://hanzubon.jp/debian"
 TARGET="/var/spool/apt-mirror/mirror/ftp.jp.debian.org/debian"
 
 testing="testing testing-updates testing-backports testing-proposed-updates"
