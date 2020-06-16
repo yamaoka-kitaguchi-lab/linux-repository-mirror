@@ -6,7 +6,7 @@ services:
     build:
       context: pacman/archlinux
     volumes:
-      - ./pacman/exclude.txt:/exclude.txt
+      - ./pacman/archlinux/exclude.txt:/exclude.txt
       - /srv/mirror/archlinux:/var/spool/pacman-mirror
 
   apt-ubuntu:

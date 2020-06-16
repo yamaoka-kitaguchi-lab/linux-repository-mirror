@@ -1,3 +1,9 @@
-*/os/i686
-pool/*/*-i686.pkg.tar.xz
-pool/*/*-i686.pkg.tar.gz
+# iso
+
+# */os/i686
+# pool/*/*-i686.pkg.tar.xz
+# pool/*/*-i686.pkg.tar.gz
+
+# */os/x86_64
+# pool/*/*-x86_64.pkg.tar.xz
+# pool/*/*-x86_64.pkg.tar.gz
