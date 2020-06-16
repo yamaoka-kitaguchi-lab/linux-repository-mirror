@@ -3,19 +3,22 @@
 ## Debian worldwide mirror sites
 ## https://www.debian.org/mirror/list-full
 
-RSYNC="rsync --recursive --times --links --hard-links --delete --delete-after"
 SOURCE="rsync://hanzubon.jp/debian"
-TARGET="/var/spool/apt-mirror/mirror/ftp.jp.debian.org/debian"
+DEST="/var/spool/apt-mirror/mirror/ftp.jp.debian.org/debian"
+RSYNC_OPTS="-rtlHv --delete-after --delay-updates --copy-links --safe-links --max-delete=1000 --delete-excluded --exclude=.*"
 
 testing="testing testing-updates testing-backports testing-proposed-updates"
 bullseye="bullseye bullseye-updates bullseye-backports bullseye-proposed-updates"
 buster="buster buster-updates buster-backports buster-proposed-updates"
 stretch="stretch stretch-updates stretch-backports stretch-proposed-updates"
-
 REPOS="${testing} ${bullseye} ${buster} ${stretch}"
 
 for repo in $REPOS; do
-    ${RSYNC} ${SOURCE}/dists/${repo}/main/i18n/     ${TARGET}/dists/${repo}/main/i18n/
-    ${RSYNC} ${SOURCE}/dists/${repo}/contrib/i18n/  ${TARGET}/dists/${repo}/contrib/i18n/
-    ${RSYNC} ${SOURCE}/dists/${repo}/non-free/i18n/ ${TARGET}/dists/${repo}/non-free/i18n/
+    for d in main contrib non-free; do
+        echo "Syncing $repo/$d/i18n ..."
+        rsync $RSYNC_OPTS ${SOURCE}/dists/${repo}/${d}/i18n/     ${DEST}/dists/${repo}/${d}/i18n/
+        echo
+    done
 done
+
+exit 0
