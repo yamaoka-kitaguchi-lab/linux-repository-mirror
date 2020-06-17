@@ -9,6 +9,14 @@ services:
       - ./pacman/archlinux/exclude.txt:/exclude.txt
       - /srv/mirror/archlinux:/var/spool/pacman-mirror
 
+  pacman-manjaro:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/manjaro-mirror:latest
+    build:
+      context: pacman/manjaro
+    volumes:
+      - ./pacman/manjaro/exclude.txt:/exclude.txt
+      - /srv/mirror/manjaro:/var/spool/manjaro-mirror
+
   apt-ubuntu:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/ubuntu-mirror:latest
     build:
@@ -49,3 +57,4 @@ services:
       - 10.0.5.12:80:80
     volumes:
       - /srv/mirror/archlinux:/usr/share/nginx/pacman/archlinux:ro
+      - /srv/mirror/manjaro:/usr/share/nginx/pacman/manjaro:ro
