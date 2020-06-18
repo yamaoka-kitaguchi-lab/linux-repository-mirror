@@ -13,14 +13,16 @@ services:
     build:
       context: apt/raspbian
     volumes:
-      - /srv/mirror/raspbian:/var/spool/apt-mirror/mirror/ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian
+      # - /srv/mirror/raspbian:/var/spool/apt-mirror/mirror/archive.raspbian.org/Linux/raspbian/raspbian
+      - /srv/mirror/raspbian:/var/spool/apt-mirror/mirror
 
   apt-ubuntu:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/ubuntu-mirror:latest
     build:
       context: apt/ubuntu
     volumes:
-      - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror/ftp.jaist.ac.jp/ubuntu
+      # - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror/jp.archive.ubuntu.com/ubuntu
+      - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror
 
   pacman-arch:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/archlinux-mirror:latest
