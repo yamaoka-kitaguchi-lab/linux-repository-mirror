@@ -95,9 +95,8 @@ services:
       - /srv/mirror/gentoo/gentoo:/var/spool/portage-mirror/gentoo
 
   nginx-all:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
-    build:
-      context: docker/nginx
+    <<: *nginx-template
+    hostname: mirror.intra.net.ict.e.titech.ac.jp
     ports:
       - 10.0.5.11:80:80
     volumes:
@@ -109,9 +108,8 @@ services:
       - /srv/mirror/gentoo:/usr/share/nginx/portage/gentoo:ro
 
   nginx-apt:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
-    build:
-      context: docker/nginx
+    <<: *nginx-template
+    hostname: apt.mirror.intra.net.ict.e.titech.ac.jp
     ports:
       - 10.0.5.12:80:80
     volumes:
@@ -120,9 +118,8 @@ services:
       - /srv/mirror/raspbian:/usr/share/nginx/apt/raspbian:ro
 
   nginx-pacman:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
-    build:
-      context: docker/nginx
+    <<: *nginx-template
+    hostname: pacman.mirror.intra.net.ict.e.titech.ac.jp
     ports:
       - 10.0.5.13:80:80
     volumes:
@@ -130,9 +127,8 @@ services:
       - /srv/mirror/manjaro:/usr/share/nginx/pacman/manjaro:ro
 
   nginx-portage:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
-    build:
-      context: docker/nginx
+    <<: *nginx-template
+    hostname: portage.mirror.intra.net.ict.e.titech.ac.jp
     ports:
       - 10.0.5.14:80:80
     volumes:
