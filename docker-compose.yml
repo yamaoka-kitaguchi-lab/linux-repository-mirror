@@ -66,17 +66,21 @@ services:
   pacman-arch:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/archlinux-mirror:latest
     build:
-      context: docker/pacman/archlinux
+      context: docker/pacman
+      args:
+        context: archlinux
+    <<: *update-mirror-template
     volumes:
-      - ./pacman/archlinux/exclude.txt:/exclude.txt
       - /srv/mirror/archlinux:/var/spool/pacman-mirror
 
   pacman-manjaro:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/manjaro-mirror:latest
     build:
-      context: docker/pacman/manjaro
+      context: docker/pacman
+      args:
+        context: manjaro
+    <<: *update-mirror-template
     volumes:
-      - ./pacman/manjaro/exclude.txt:/exclude.txt
       - /srv/mirror/manjaro:/var/spool/manjaro-mirror
 
   portage-gentoo:
