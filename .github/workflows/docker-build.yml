@@ -19,97 +19,97 @@ jobs:
       - name: Build archlinux-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
-          CONTEXT: archlinux
+          context: archlinux
         with:
           name: yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
           workdir: docker/pacman
-          buildargs: CONTEXT
+          buildargs: context
           snapshot: true
           tags: "latest"
 
       - name: Build manjaro-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
-          CONTEXT: manjaro
+          context: manjaro
         with:
           name: yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
           workdir: docker/pacman
-          buildargs: CONTEXT
+          buildargs: context
           snapshot: true
           tags: "latest"
 
       - name: Build debian-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
-          CONTEXT: debian
+          context: debian
         with:
           name: yamaoka-kitaguchi-lab/linux-repository-mirror/debian-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
           workdir: docker/apt
-          buildargs: CONTEXT
+          buildargs: context
           snapshot: true
           tags: "latest"
 
       - name: Build ubuntu-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
-          CONTEXT: ubuntu
+          context: ubuntu
         with:
           name: yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
           workdir: docker/apt
-          buildargs: CONTEXT
+          buildargs: context
           snapshot: true
           tags: "latest"
 
       - name: Build raspbian-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
-          CONTEXT: raspbian
+          context: raspbian
         with:
           name: yamaoka-kitaguchi-lab/linux-repository-mirror/raspbian-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
           workdir: docker/apt
-          buildargs: CONTEXT
+          buildargs: context
           snapshot: true
           tags: "latest"
 
       - name: Build gentoo-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
-          CONTEXT: gentoo
+          context: gentoo
         with:
           name: yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
           workdir: docker/portage
-          buildargs: CONTEXT
+          buildargs: context
           snapshot: true
           tags: "latest"
 
       - name: Build mirror-index-nginx
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
-          CONTEXT: nginx
+          context: nginx
         with:
           name: yamaoka-kitaguchi-lab/linux-repository-mirror/mirror-index-nginx
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
           workdir: docker/nginx
-          buildargs: CONTEXT
+          buildargs: context
           snapshot: true
           tags: "latest"
