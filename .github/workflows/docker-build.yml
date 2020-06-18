@@ -1,0 +1,125 @@
+name: Docker Build
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/**'
+      - 'docker/**'
+
+env:
+  BASENAME: yamaoka-kitaguchi-lab/linux-repository-mirror
+  IMAGE_NAME_ARCHLINUX: archlinux-mirror
+  IMAGE_NAME_MANJARO: manjaro-mirror
+  IMAGE_NAME_DEBIAN: debian-mirror
+  IMAGE_NAME_UBUNTU: ubuntu-mirror
+  IMAGE_NAME_RASPBIAN: raspbian-mirror
+  IMAGE_NAME_GENTOO: gentoo-mirror
+  IMAGE_NAME_NGINX: mirror-index-nginx
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build $IMAGE_NAME_ARCHLINUX
+        uses: elgohr/Publish-Docker-Github-Action@master
+        env:
+          CONTEXT: archlinux
+        with:
+          name: $BASENAME/$IMAGE_NAME_ARCHLINUX
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: docker.pkg.github.com
+          context: docker/pacman
+          buildargs: CONTEXT
+          snapshot: true
+          tags: "latest"
+
+      - name: Build $IMAGE_NAME_MANJARO
+        uses: elgohr/Publish-Docker-Github-Action@master
+        env:
+          CONTEXT: manjaro
+        with:
+          name: $BASENAME/$IMAGE_NAME_MANJARO
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: docker.pkg.github.com
+          context: docker/pacman
+          buildargs: CONTEXT
+          snapshot: true
+          tags: "latest"
+
+      - name: Build $IMAGE_NAME_DEBIAN
+        uses: elgohr/Publish-Docker-Github-Action@master
+        env:
+          CONTEXT: debian
+        with:
+          name: $BASENAME/$IMAGE_NAME_DEBIAN
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: docker.pkg.github.com
+          context: docker/apt
+          buildargs: CONTEXT
+          snapshot: true
+          tags: "latest"
+
+      - name: Build $IMAGE_NAME_UBUNTU
+        uses: elgohr/Publish-Docker-Github-Action@master
+        env:
+          CONTEXT: ubuntu
+        with:
+          name: $BASENAME/$IMAGE_NAME_UBUNTU
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: docker.pkg.github.com
+          context: docker/apt
+          buildargs: CONTEXT
+          snapshot: true
+          tags: "latest"
+
+      - name: Build $IMAGE_NAME_RASPBIAN
+        uses: elgohr/Publish-Docker-Github-Action@master
+        env:
+          CONTEXT: raspbian
+        with:
+          name: $BASENAME/$IMAGE_NAME_RASPBIAN
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: docker.pkg.github.com
+          context: docker/apt
+          buildargs: CONTEXT
+          snapshot: true
+          tags: "latest"
+
+      - name: Build $IMAGE_NAME_GENTOO
+        uses: elgohr/Publish-Docker-Github-Action@master
+        env:
+          CONTEXT: gentoo
+        with:
+          name: $BASENAME/$IMAGE_NAME_GENTOO
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: docker.pkg.github.com
+          context: docker/portage
+          buildargs: CONTEXT
+          snapshot: true
+          tags: "latest"
+
+      - name: Build $IMAGE_NAME_NGINX
+        uses: elgohr/Publish-Docker-Github-Action@master
+        env:
+          CONTEXT: nginx
+        with:
+          name: $BASENAME/$IMAGE_NAME_NGINX
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: docker.pkg.github.com
+          context: docker/nginx
+          buildargs: CONTEXT
+          snapshot: true
+          tags: "latest"

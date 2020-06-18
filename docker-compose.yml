@@ -20,7 +20,7 @@ x-update-mirror: &update-mirror-template
     SYNC_TIMEOUT_MIN: 60
 
 x-nginx: &nginx-template
-  image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
+  image: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/mirror-index-nginx:latest
   build:
     context: docker/nginx
   restart: always
@@ -33,38 +33,8 @@ x-nginx: &nginx-template
     jp.ac.titech.e.ict.net.intra.mirror.description: "Linux package mirrors for laboratory local"
 
 services:
-  update-debian:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/debian-mirror:latest
-    build:
-      context: docker/apt
-      args:
-        context: debian
-    <<: *update-mirror-template
-    volumes:
-      - /srv/mirror/debian:/var/spool/apt-mirror/mirror/ftp.jp.debian.org/debian
-
-  update-raspbian:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/raspbian-mirror:latest
-    build:
-      context: docker/apt
-      args:
-        context: raspbian
-    <<: *update-mirror-template
-    volumes:
-      - /srv/mirror/raspbian:/var/spool/apt-mirror/mirror/archive.raspbian.org/raspbian
-
-  update-ubuntu:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/ubuntu-mirror:latest
-    build:
-      context: docker/apt
-      args:
-        context: ubuntu
-    <<: *update-mirror-template
-    volumes:
-      - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror/jp.archive.ubuntu.com/ubuntu
-
   update-archlinux:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/archlinux-mirror:latest
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror:latest
     build:
       context: docker/pacman
       args:
@@ -74,7 +44,7 @@ services:
       - /srv/mirror/archlinux:/var/spool/pacman-mirror
 
   update-manjaro:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/manjaro-mirror:latest
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror:latest
     build:
       context: docker/pacman
       args:
@@ -83,8 +53,38 @@ services:
     volumes:
       - /srv/mirror/manjaro:/var/spool/manjaro-mirror
 
+  update-debian:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/debian-mirror:latest
+    build:
+      context: docker/apt
+      args:
+        context: debian
+    <<: *update-mirror-template
+    volumes:
+      - /srv/mirror/debian:/var/spool/apt-mirror/mirror/ftp.jp.debian.org/debian
+
+  update-ubuntu:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror:latest
+    build:
+      context: docker/apt
+      args:
+        context: ubuntu
+    <<: *update-mirror-template
+    volumes:
+      - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror/jp.archive.ubuntu.com/ubuntu
+
+  update-raspbian:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/raspbian-mirror:latest
+    build:
+      context: docker/apt
+      args:
+        context: raspbian
+    <<: *update-mirror-template
+    volumes:
+      - /srv/mirror/raspbian:/var/spool/apt-mirror/mirror/archive.raspbian.org/raspbian
+
   update-gentoo:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/gentoo-mirror:latest
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror:latest
     build:
       context: docker/portage
       args:
