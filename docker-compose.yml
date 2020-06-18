@@ -47,7 +47,7 @@ services:
       - /srv/mirror/gentoo/gentoo-portage:/var/spool/portage-mirror/gentoo-portage
       - /srv/mirror/gentoo/gentoo:/var/spool/portage-mirror/gentoo
 
-  nginx-apt:
+  nginx-all:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
     build:
       context: nginx
@@ -57,13 +57,36 @@ services:
       - /srv/mirror/ubuntu:/usr/share/nginx/apt/ubuntu:ro
       - /srv/mirror/debian:/usr/share/nginx/apt/debian:ro
       - /srv/mirror/raspberrypi:/usr/share/nginx/apt/raspberrypi:ro
+      - /srv/mirror/archlinux:/usr/share/nginx/pacman/archlinux:ro
+      - /srv/mirror/manjaro:/usr/share/nginx/pacman/manjaro:ro
+      - /srv/mirror/gentoo:/usr/share/nginx/portage/gentoo:ro
 
-  nginx-pacman:
+  nginx-apt:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
     build:
       context: nginx
     ports:
       - 10.0.5.12:80:80
     volumes:
+      - /srv/mirror/ubuntu:/usr/share/nginx/apt/ubuntu:ro
+      - /srv/mirror/debian:/usr/share/nginx/apt/debian:ro
+      - /srv/mirror/raspbian:/usr/share/nginx/apt/raspbian:ro
+
+  nginx-pacman:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
+    build:
+      context: nginx
+    ports:
+      - 10.0.5.13:80:80
+    volumes:
       - /srv/mirror/archlinux:/usr/share/nginx/pacman/archlinux:ro
       - /srv/mirror/manjaro:/usr/share/nginx/pacman/manjaro:ro
+
+  nginx-portage:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
+    build:
+      context: nginx
+    ports:
+      - 10.0.5.14:80:80
+    volumes:
+      - /srv/mirror/gentoo:/usr/share/nginx/portage/gentoo:ro
