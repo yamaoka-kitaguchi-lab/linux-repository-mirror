@@ -3,7 +3,7 @@ Description=Update local mirrors
 
 [Service]
 Type=simple
-ExecStart=/bin/sh /opt/linux-repository-mirror/update-mirror.sh
+ExecStart=/bin/sh /opt/linux-repository-mirror/systemd/job.sh
 
 [Install]
 WantedBy=multi-user.target

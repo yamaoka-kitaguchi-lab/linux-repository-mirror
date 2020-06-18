@@ -1,5 +1,5 @@
 [Unit]
-Description=Update local mirrors
+Description=Update local mirrors (once a day)
 
 [Timer]
 OnUnitActiveSec=24h

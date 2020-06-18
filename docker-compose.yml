@@ -51,7 +51,7 @@ services:
         context: raspbian
     <<: *update-mirror-template
     volumes:
-      - /srv/mirror/raspbian:/var/spool/apt-mirror/mirror/archive.raspbian.org/Linux/raspbian/raspbian
+      - /srv/mirror/raspbian:/var/spool/apt-mirror/mirror/archive.raspbian.org/raspbian
 
   update-ubuntu:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/ubuntu-mirror:latest
