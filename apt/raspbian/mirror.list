@@ -31,7 +31,7 @@ deb http://archive.raspbian.org/raspbian bullseye         main contrib non-free 
 # deb http://archive.raspbian.org/raspbian jessie-staging   main contrib non-free rpi firmware
 # deb http://archive.raspbian.org/raspbian buster-staging   main contrib non-free rpi firmware
 # deb http://archive.raspbian.org/raspbian bullseye-staging main contrib non-free rpi firmware
-deb http://archive.raspbian.org/raspbian testing          main contrib non-free rpi firmware
+# deb http://archive.raspbian.org/raspbian testing          main contrib non-free rpi firmware
 
 
 clean http://archive.raspbian.org/raspbian

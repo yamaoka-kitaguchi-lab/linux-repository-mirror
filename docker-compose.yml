@@ -1,6 +1,27 @@
 version: '3'
 
 services:
+  apt-debian:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/debian-mirror:latest
+    build:
+      context: apt/debian
+    volumes:
+      - /srv/mirror/debian:/var/spool/apt-mirror/mirror/ftp.jp.debian.org/debian
+
+  apt-raspbian:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/raspbian-mirror:latest
+    build:
+      context: apt/raspbian
+    volumes:
+      - /srv/mirror/raspbian:/var/spool/apt-mirror/mirror/ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian
+
+  apt-ubuntu:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/ubuntu-mirror:latest
+    build:
+      context: apt/ubuntu
+    volumes:
+      - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror/ftp.jaist.ac.jp/ubuntu
+
   pacman-arch:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/archlinux-mirror:latest
     build:
@@ -16,27 +37,6 @@ services:
     volumes:
       - ./pacman/manjaro/exclude.txt:/exclude.txt
       - /srv/mirror/manjaro:/var/spool/manjaro-mirror
-
-  apt-ubuntu:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/ubuntu-mirror:latest
-    build:
-      context: apt/ubuntu
-    volumes:
-      - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror/ftp.jaist.ac.jp/ubuntu
-
-  apt-debian:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/debian-mirror:latest
-    build:
-      context: apt/debian
-    volumes:
-      - /srv/mirror/debian:/var/spool/apt-mirror/mirror/ftp.jp.debian.org/debian
-
-  apt-raspberrypi:
-    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/raspberrypi-mirror:latest
-    build:
-      context: apt/raspberrypi
-    volumes:
-      - /srv/mirror/raspberrypi/raspbian:/var/spool/apt-mirror/mirror/ftp.tsukuba.wide.ad.jp/Linux/raspbian/raspbian
 
   portage-gentoo:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/gentoo-mirror:latest
