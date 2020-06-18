@@ -1,0 +1,9 @@
+[Unit]
+Description=Update local mirrors once a day
+
+[Service]
+Type=simple
+ExecStart=/bin/sh /opt/linux-repository-mirror/update-mirror-once-a-day.sh
+
+[Install]
+WantedBy=multi-user.target
