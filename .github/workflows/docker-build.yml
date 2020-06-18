@@ -8,16 +8,6 @@ on:
       - '.github/**'
       - 'docker/**'
 
-env:
-  BASENAME: yamaoka-kitaguchi-lab/linux-repository-mirror
-  IMAGE_NAME_ARCHLINUX: archlinux-mirror
-  IMAGE_NAME_MANJARO: manjaro-mirror
-  IMAGE_NAME_DEBIAN: debian-mirror
-  IMAGE_NAME_UBUNTU: ubuntu-mirror
-  IMAGE_NAME_RASPBIAN: raspbian-mirror
-  IMAGE_NAME_GENTOO: gentoo-mirror
-  IMAGE_NAME_NGINX: mirror-index-nginx
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -26,12 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build $IMAGE_NAME_ARCHLINUX
+      - name: Build archlinux-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
           CONTEXT: archlinux
         with:
-          name: $BASENAME/$IMAGE_NAME_ARCHLINUX
+          name: yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
@@ -40,12 +30,12 @@ jobs:
           snapshot: true
           tags: "latest"
 
-      - name: Build $IMAGE_NAME_MANJARO
+      - name: Build manjaro-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
           CONTEXT: manjaro
         with:
-          name: $BASENAME/$IMAGE_NAME_MANJARO
+          name: yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
@@ -54,12 +44,12 @@ jobs:
           snapshot: true
           tags: "latest"
 
-      - name: Build $IMAGE_NAME_DEBIAN
+      - name: Build debian-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
           CONTEXT: debian
         with:
-          name: $BASENAME/$IMAGE_NAME_DEBIAN
+          name: yamaoka-kitaguchi-lab/linux-repository-mirror/debian-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
@@ -68,12 +58,12 @@ jobs:
           snapshot: true
           tags: "latest"
 
-      - name: Build $IMAGE_NAME_UBUNTU
+      - name: Build ubuntu-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
           CONTEXT: ubuntu
         with:
-          name: $BASENAME/$IMAGE_NAME_UBUNTU
+          name: yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
@@ -82,12 +72,12 @@ jobs:
           snapshot: true
           tags: "latest"
 
-      - name: Build $IMAGE_NAME_RASPBIAN
+      - name: Build raspbian-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
           CONTEXT: raspbian
         with:
-          name: $BASENAME/$IMAGE_NAME_RASPBIAN
+          name: yamaoka-kitaguchi-lab/linux-repository-mirror/raspbian-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
@@ -96,12 +86,12 @@ jobs:
           snapshot: true
           tags: "latest"
 
-      - name: Build $IMAGE_NAME_GENTOO
+      - name: Build gentoo-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
           CONTEXT: gentoo
         with:
-          name: $BASENAME/$IMAGE_NAME_GENTOO
+          name: yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
@@ -110,12 +100,12 @@ jobs:
           snapshot: true
           tags: "latest"
 
-      - name: Build $IMAGE_NAME_NGINX
+      - name: Build mirror-index-nginx
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
           CONTEXT: nginx
         with:
-          name: $BASENAME/$IMAGE_NAME_NGINX
+          name: yamaoka-kitaguchi-lab/linux-repository-mirror/mirror-index-nginx
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: docker.pkg.github.com
