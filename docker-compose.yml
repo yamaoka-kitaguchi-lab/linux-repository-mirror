@@ -17,7 +17,7 @@ x-update-mirror: &update-mirror-template
   stop_signal: SIGTERM
   logging: *default-logging
   environment:
-    SYNC_TIMEOUT_MIN: 120
+    SYNC_TIMEOUT_MIN: 60
 
 x-nginx: &nginx-template
   image: docker.pkg.github.com/yamaoka-kitaguchi-lab/mirror-index-nginx:latest
@@ -63,7 +63,7 @@ services:
     volumes:
       - /srv/mirror/ubuntu:/var/spool/apt-mirror/mirror/jp.archive.ubuntu.com/ubuntu
 
-  pacman-arch:
+  update-archlinux:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/archlinux-mirror:latest
     build:
       context: docker/pacman
@@ -73,7 +73,7 @@ services:
     volumes:
       - /srv/mirror/archlinux:/var/spool/pacman-mirror
 
-  pacman-manjaro:
+  update-manjaro:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/manjaro-mirror:latest
     build:
       context: docker/pacman
@@ -83,12 +83,14 @@ services:
     volumes:
       - /srv/mirror/manjaro:/var/spool/manjaro-mirror
 
-  portage-gentoo:
+  update-gentoo:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/gentoo-mirror:latest
     build:
-      context: docker/portage/gentoo
+      context: docker/portage
+      args:
+        context: gentoo
+    <<: *update-mirror-template
     volumes:
-      - ./portage/gentoo/exclude.txt:/exclude.txt
       - /srv/mirror/gentoo/gentoo-portage:/var/spool/portage-mirror/gentoo-portage
       - /srv/mirror/gentoo/gentoo:/var/spool/portage-mirror/gentoo
 
