@@ -2,7 +2,7 @@
 
 SOURCE='rsync://ftp.tsukuba.wide.ad.jp/manjaro'
 DEST='/var/spool/manjaro-mirror'
-REPOS='pool stable unstable testing x32-stable x32-unstable tmp'
+REPOS='arm-stable arm-testing arm-unstable pool stable-staging stable state testing unstable'
 RSYNC_OPTS="-rtlHv --delete-after --delay-updates --copy-links --safe-links --max-delete=1000 --delete-excluded --exclude=.*"
 RSYNC_EXCLUDE_OPT=""
 EXCLUDE_FILE="/exclude.txt"
