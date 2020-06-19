@@ -1,5 +1,5 @@
 [Unit]
-Description=Update local mirrors
+Description=Update of Local Mirror Repositories (see: yamaoka-kitaguchi-lab/linux-repository-mirror)
 
 [Service]
 Type=simple
