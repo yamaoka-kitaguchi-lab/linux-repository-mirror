@@ -9,7 +9,7 @@ spec:
   selector:
     app: nginx-all
   ports:
-    - port: http
+    - port: 80
       targetPort: http
       protocol: TCP
       name: http
@@ -29,7 +29,7 @@ spec:
   selector:
     app: nginx-apt
   ports:
-    - port: http
+    - port: 80
       targetPort: http
       protocol: TCP
       name: http
@@ -49,7 +49,7 @@ spec:
   selector:
     app: nginx-pacman
   ports:
-    - port: http
+    - port: 80
       targetPort: http
       protocol: TCP
       name: http
@@ -69,7 +69,7 @@ spec:
   selector:
     app: nginx-portage
   ports:
-    - port: http
+    - port: 80
       targetPort: http
       protocol: TCP
       name: http
