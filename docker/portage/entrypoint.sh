@@ -4,7 +4,7 @@ MIRROR_U_DEST='/var/spool/portage-mirror/gentoo-portage'
 MIRROR_I_DEST='/var/spool/portage-mirror/gentoo'
 RSYNC_OPTS="-rtlHv --delete-after --delay-updates --copy-links --safe-links --max-delete=1000 --delete-excluded --exclude=.*"
 RSYNC_EXCLUDE_OPT=""
-EXCLUDE_FILE="/exclude.txt"
+EXCLUDE_FILE="/opt/exclude.txt"
 PATH='/usr/bin'
 
 if [[ -e "$EXCLUDE_FILE" ]] ; then

@@ -3,7 +3,7 @@
 DEST='/var/spool/pacman-mirror'
 RSYNC_OPTS="-rtlHv --delete-after --delay-updates --copy-links --safe-links --max-delete=1000 --delete-excluded --exclude=.*"
 RSYNC_EXCLUDE_OPT=""
-EXCLUDE_FILE="/exclude.txt"
+EXCLUDE_FILE="/opt/exclude.txt"
 PATH='/usr/bin'
 
 if [[ -e "$EXCLUDE_FILE" ]] ; then
