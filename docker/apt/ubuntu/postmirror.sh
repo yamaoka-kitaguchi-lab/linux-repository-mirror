@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SOURCE="rsync://jp.archive.ubuntu.com"
-DEST="/ubuntu"
+SOURCE="rsync://jp.archive.ubuntu.com/ubuntu"
+DEST="/var/spool/apt-mirror/mirror/jp.archive.ubuntu.com/ubuntu"
 RSYNC_OPTS="-rtlHv --delete-after --delay-updates --copy-links --safe-links --max-delete=1000 --delete-excluded --exclude=.*"
 
 focal="focal focal-updates focal-backports focal-security focal-proposed"
