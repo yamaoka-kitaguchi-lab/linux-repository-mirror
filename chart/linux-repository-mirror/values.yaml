@@ -9,69 +9,70 @@ nginx:
     minReplicas: 1
     maxReplicas: 4
     targetCPUUtilizationPercentage: 60%
-  service:
-    externalIPs:
-      all: 10.0.5.11
-      apt: 10.0.5.12
-      pacman: 10.0.5.13
-      portage: 10.0.5.14
+  externalIPs:
+    all: 10.0.5.11
+    apt: 10.0.5.12
+    pacman: 10.0.5.13
+    portage: 10.0.5.14
 
-archlinux-mirror:
-  image:
-    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror
-    tag: latest
-    pullPolicy: IfNotPresent
-  update:
-    schedule: "*/20 * * * *"
-  pv:
-    name: archlinux-mirror-pv
+mirror:
+  archlinux:
+    image:
+      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror
+      tag: latest
+      pullPolicy: IfNotPresent
+    update:
+      schedule: "*/20 * * * *"
+      activeDeadlineSeconds: 7200
+    pv:
+      name: archlinux-mirror-pv
 
-manjaro-mirror:
-  image:
-    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror
-    tag: latest
-    pullPolicy: IfNotPresent
-  update:
-    schedule: "*/20 * * * *"
-  pv:
-    name: manjaro-mirror-pv
+  manjaro:
+    image:
+      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror
+      tag: latest
+      pullPolicy: IfNotPresent
+    update:
+      schedule: "*/20 * * * *"
+    pv:
+      name: manjaro-mirror-pv
 
-ubuntu-mirror:
-  image:
-    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror
-    tag: latest
-    pullPolicy: IfNotPresent
-  update:
-    schedule: "*/20 * * * *"
-  pv:
-    name: ubuntu-mirror-pv
+  ubuntu:
+    image:
+      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror
+      tag: latest
+      pullPolicy: IfNotPresent
+    update:
+      schedule: "*/20 * * * *"
+    pv:
+      name: ubuntu-mirror-pv
 
-debian-mirror:
-  image:
-    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/debian-mirror
-    tag: latest
-    pullPolicy: IfNotPresent
-  update:
-    schedule: "*/20 * * * *"
-  pv:
-    name: debian-mirror-pv
+  debian:
+    image:
+      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/debian-mirror
+      tag: latest
+      pullPolicy: IfNotPresent
+    update:
+      schedule: "*/20 * * * *"
+    pv:
+      name: debian-mirror-pv
 
-raspbian-mirror:
-  image:
-    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/raspbian-mirror
-    tag: latest
-    pullPolicy: IfNotPresent
-  update:
-    schedule: "*/20 * * * *"
-  pv:
-    name: raspbian-mirror-pv
+  raspbian:
+    image:
+      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/raspbian-mirror
+      tag: latest
+      pullPolicy: IfNotPresent
+    update:
+      schedule: "*/20 * * * *"
+    pv:
+      name: raspbian-mirror-pv
 
-gentoo-mirror:
-  image:
-    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror
-    tag: latest
-    pullPolicy: IfNotPresent
-  update:
-    schedule: "0 0 * * *"
-  pv:
-    name: gentoo-mirror-pv
+  gentoo:
+    image:
+      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror
+      tag: latest
+      pullPolicy: IfNotPresent
+    update:
+      schedule: "0 0 * * *"
+    pv:
+      name: gentoo-mirror-pv

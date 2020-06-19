@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "linux-repository-mirror.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "linux-repository-mirror.fullname" . }}']
   restartPolicy: Never

@@ -12,7 +12,7 @@ spec:
       storage: 120Gi
   selector:
     matchLabels:
-      name: {{ .Values.archlinux-mirror.pv.name }}
+      name: {{ .Values.mirror.archlinux.pv.name }}
 
 ---
 
@@ -30,7 +30,7 @@ spec:
       storage: 350Gi
   selector:
     matchLabels:
-      name: {{ .Values.manjaro-mirror.pv.name }}
+      name: {{ .Values.mirror.manjaro.pv.name }}
 
 ---
 
@@ -48,7 +48,7 @@ spec:
       storage: 450Gi
   selector:
     matchLabels:
-      name: {{ .Values.ubuntu-mirror.pv.name }}
+      name: {{ .Values.mirror.ubuntu.pv.name }}
 
 ---
 
@@ -66,7 +66,7 @@ spec:
       storage: 400Gi
   selector:
     matchLabels:
-      name: {{ .Values.debian-mirror.pv.name }}
+      name: {{ .Values.mirror.debian.pv.name }}
 
 ---
 
@@ -84,7 +84,7 @@ spec:
       storage: 250Gi
   selector:
     matchLabels:
-      name: {{ .Values.raspbian-mirror.pv.name }}
+      name: {{ .Values.mirror.raspbian.pv.name }}
 
 ---
 
@@ -102,4 +102,4 @@ spec:
       storage: 850Gi
   selector:
     matchLabels:
-      name: {{ .Values.gentoo-mirror.pv.name }}
+      name: {{ .Values.mirror.gentoo.pv.name }}

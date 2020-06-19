@@ -65,19 +65,19 @@ spec:
       volumes:
         - name: archlinux
           persistentVolumeClaim:
-            claimName: {{ .Values.archlinux-mirror.pv.name }}
+            claimName: {{ .Values.mirror.archlinux.pv.name }}
         - name: manjaro
           persistentVolumeClaim:
-            claimName: {{ .Values.manjaro-mirror.pv.name }}
+            claimName: {{ .Values.mirror.manjaro.pv.name }}
         - name: ubuntu
           persistentVolumeClaim:
-            claimName: {{ .Values.ubuntu-mirror.pv.name }}
+            claimName: {{ .Values.mirror.ubuntu.pv.name }}
         - name: debian
           persistentVolumeClaim:
-            claimName: {{ .Values.debian-mirror.pv.name }}
+            claimName: {{ .Values.mirror.debian.pv.name }}
         - name: raspbian
           persistentVolumeClaim:
-            claimName: {{ .Values.raspbian-mirror.pv.name }}
+            claimName: {{ .Values.mirror.raspbian.pv.name }}
         - name: gentoo
           persistentVolumeClaim:
-            claimName: {{ .Values.gentoo-mirror.pv.name }}
+            claimName: {{ .Values.mirror.gentoo.pv.name }}

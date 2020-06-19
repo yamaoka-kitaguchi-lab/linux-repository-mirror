@@ -56,10 +56,10 @@ spec:
       volumes:
         - name: ubuntu
           persistentVolumeClaim:
-            claimName: {{ .Values.ubuntu-mirror.pv.name }}
+            claimName: {{ .Values.mirror.ubuntu.pv.name }}
         - name: debian
           persistentVolumeClaim:
-            claimName: {{ .Values.debian-mirror.pv.name }}
+            claimName: {{ .Values.mirror.debian.pv.name }}
         - name: raspbian
           persistentVolumeClaim:
-            claimName: {{ .Values.raspbian-mirror.pv.name }}
+            claimName: {{ .Values.mirror.raspbian.pv.name }}
