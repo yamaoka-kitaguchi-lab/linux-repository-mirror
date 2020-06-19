@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SOURCE="rsync://jp.archive.ubuntu.com/ubuntu"
+SOURCE="rsync://ftp.jaist.ac.jp/pub/Linux/ubuntu"
 DEST="/var/spool/apt-mirror/mirror/jp.archive.ubuntu.com/ubuntu"
 RSYNC_OPTS="-rtlHv --delete-after --delay-updates --copy-links --safe-links --max-delete=1000 --delete-excluded --exclude=.*"
 
