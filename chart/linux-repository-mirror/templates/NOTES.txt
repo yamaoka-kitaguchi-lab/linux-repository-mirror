@@ -2,5 +2,6 @@ Your release is named {{ .Release.Name }}.
 
 To show more about the release, try:
 
-  % helm status {{ .Release.Name }}
-  % helm get {{ .Release.Name }}
+  % helm3 status {{ .Release.Name }}
+  % helm3 get all {{ .Release.Name }}
+  % kubectl get all -A

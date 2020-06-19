@@ -1,6 +1,6 @@
 nginx:
   image:
-    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/mirror-index-nginx
+    repository: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/mirror-index-nginx
     tag: latest
     pullPolicy: IfNotPresent
   replicaCount: 2
@@ -18,7 +18,7 @@ nginx:
 mirror:
   archlinux:
     image:
-      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror
+      repository: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror
       tag: latest
       pullPolicy: IfNotPresent
     update:
@@ -29,7 +29,7 @@ mirror:
 
   manjaro:
     image:
-      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror
+      repository: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror
       tag: latest
       pullPolicy: IfNotPresent
     update:
@@ -40,7 +40,7 @@ mirror:
 
   ubuntu:
     image:
-      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror
+      repository: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror
       tag: latest
       pullPolicy: IfNotPresent
     update:
@@ -51,7 +51,7 @@ mirror:
 
   debian:
     image:
-      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/debian-mirror
+      repository: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/debian-mirror
       tag: latest
       pullPolicy: IfNotPresent
     update:
@@ -62,7 +62,7 @@ mirror:
 
   raspbian:
     image:
-      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/raspbian-mirror
+      repository: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/raspbian-mirror
       tag: latest
       pullPolicy: IfNotPresent
     update:
@@ -73,7 +73,7 @@ mirror:
 
   gentoo:
     image:
-      repository: yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror
+      repository: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror
       tag: latest
       pullPolicy: IfNotPresent
     update:
