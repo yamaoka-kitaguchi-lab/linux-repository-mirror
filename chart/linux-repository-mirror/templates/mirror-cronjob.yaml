@@ -14,6 +14,7 @@ spec:
           containers:
             - name: {{ .Release.Name }}-archlinux-cronjob
               image: "{{ .Values.mirror.archlinux.image.repository }}:{{ .Values.mirror.archlinux.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: {{ .Values.mirror.archlinux.image.pullPolicy }}
               env:
                 - name: SYNC_TIMEOUT_MIN
                   value: "{{ .Values.mirror.archlinux.update.activeDeadlineMinutes }}"
@@ -50,6 +51,7 @@ spec:
           containers:
             - name: {{ .Release.Name }}-manjaro-cronjob
               image: "{{ .Values.mirror.manjaro.image.repository }}:{{ .Values.mirror.manjaro.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: {{ .Values.mirror.manjaro.image.pullPolicy }}
               env:
                 - name: SYNC_TIMEOUT_MIN
                   value: "{{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}"
@@ -86,6 +88,7 @@ spec:
           containers:
             - name: {{ .Release.Name }}-ubuntu-cronjob
               image: "{{ .Values.mirror.ubuntu.image.repository }}:{{ .Values.mirror.ubuntu.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: {{ .Values.mirror.ubuntu.image.pullPolicy }}
               env:
                 - name: SYNC_TIMEOUT_MIN
                   value: "{{ .Values.mirror.ubuntu.update.activeDeadlineMinutes }}"
@@ -116,6 +119,7 @@ spec:
           containers:
             - name: {{ .Release.Name }}-debian-cronjob
               image: "{{ .Values.mirror.debian.image.repository }}:{{ .Values.mirror.debian.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: {{ .Values.mirror.debian.image.pullPolicy }}
               env:
                 - name: SYNC_TIMEOUT_MIN
                   value: "{{ .Values.mirror.debian.update.activeDeadlineMinutes }}"
@@ -146,6 +150,7 @@ spec:
           containers:
             - name: {{ .Release.Name }}-raspbian-cronjob
               image: "{{ .Values.mirror.raspbian.image.repository }}:{{ .Values.mirror.raspbian.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: {{ .Values.mirror.raspbian.image.pullPolicy }}
               env:
                 - name: SYNC_TIMEOUT_MIN
                   value: "{{ .Values.mirror.raspbian.update.activeDeadlineMinutes }}"
@@ -176,6 +181,7 @@ spec:
           containers:
             - name: {{ .Release.Name }}-gentoo-cronjob
               image: "{{ .Values.mirror.gentoo.image.repository }}:{{ .Values.mirror.gentoo.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: {{ .Values.mirror.gentoo.image.pullPolicy }}
               env:
                 - name: SYNC_TIMEOUT_MIN
                   value: "{{ .Values.mirror.gentoo.update.activeDeadlineMinutes }}"

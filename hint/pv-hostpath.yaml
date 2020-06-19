@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /svr/mirror/archlinux
+    path: /srv/mirror/archlinux
 
 ---
 
@@ -26,7 +26,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /svr/mirror/manjaro
+    path: /srv/mirror/manjaro
 
 ---
 
@@ -42,7 +42,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /svr/mirror/ubuntu
+    path: /srv/mirror/ubuntu
 
 ---
 
@@ -58,7 +58,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /svr/mirror/debian
+    path: /srv/mirror/debian
 
 ---
 
@@ -74,7 +74,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /svr/mirror/raspbian
+    path: /srv/mirror/raspbian
 
 ---
 
@@ -90,4 +90,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /svr/mirror/gentoo
+    path: /srv/mirror/gentoo
