@@ -3,9 +3,9 @@ entries:
   linux-repository-mirror:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-06-19T17:51:49.4016298+09:00"
+    created: "2020-06-19T20:34:55.296287749+09:00"
     description: A Helm chart building local package mirrors on kubernetes
-    digest: 49c88215a7d1c52574b58735ae4205c9714bb190717d60888625a188d4c031c7
+    digest: 7b501d102aa72195609381716fd5bb005ac9ec09e37749a43e3248707b9a254f
     home: https://github.com/yamaoka-kitaguchi-lab/linux-repository-mirror
     maintainers:
     - email: tmiya@protonmail.ch
@@ -17,4 +17,4 @@ entries:
     urls:
     - linux-repository-mirror-1.0.0.tgz
     version: 1.0.0
-generated: "2020-06-19T17:51:49.400785781+09:00"
+generated: "2020-06-19T20:34:55.295512289+09:00"

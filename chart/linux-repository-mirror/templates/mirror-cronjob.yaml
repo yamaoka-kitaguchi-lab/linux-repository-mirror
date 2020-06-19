@@ -16,13 +16,18 @@ spec:
               image: "{{ .Values.mirror.archlinux.image.repository }}:{{ .Values.mirror.archlinux.image.tag | default .Chart.AppVersion }}"
               env:
                 - name: SYNC_TIMEOUT_MIN
-                  value: {{ .Values.mirror.archlinux.update.activeDeadlineMinutes }}
+                  value: "{{ .Values.mirror.archlinux.update.activeDeadlineMinutes }}"
               volumeMounts:
+                - name: mirror
+                  mountPath: "/var/spool/pacman-mirror"
                 - name: exclude-txt
                   mountPath: "/opt/exclude.txt"
                   readOnly: true
           restartPolicy: OnFailure
           volumes:
+            - name: mirror
+              persistentVolumeClaim:
+                claimName: {{ .Release.Name }}-archlinux-pvc
             - name: exclude-txt
               configMap:
                 name: {{ .Release.Name }}-archlinux-mirror-configmap
@@ -47,13 +52,18 @@ spec:
               image: "{{ .Values.mirror.manjaro.image.repository }}:{{ .Values.mirror.manjaro.image.tag | default .Chart.AppVersion }}"
               env:
                 - name: SYNC_TIMEOUT_MIN
-                  value: {{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}
+                  value: "{{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}"
               volumeMounts:
+                - name: mirror
+                  mountPath: "/var/spool/pacman-mirror"
                 - name: exclude-txt
                   mountPath: "/opt/exclude.txt"
                   readOnly: true
           restartPolicy: OnFailure
           volumes:
+            - name: mirror
+              persistentVolumeClaim:
+                claimName: {{ .Release.Name }}-manjaro-pvc
             - name: exclude-txt
               configMap:
                 name: {{ .Release.Name }}-manjaro-mirror-configmap
@@ -78,8 +88,15 @@ spec:
               image: "{{ .Values.mirror.ubuntu.image.repository }}:{{ .Values.mirror.ubuntu.image.tag | default .Chart.AppVersion }}"
               env:
                 - name: SYNC_TIMEOUT_MIN
-                  value: {{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}
+                  value: "{{ .Values.mirror.ubuntu.update.activeDeadlineMinutes }}"
+              volumeMounts:
+                - name: mirror
+                  mountPath: "/var/spool/apt-mirror/mirror/jp.archive.ubuntu.com/ubuntu"
           restartPolicy: OnFailure
+          volumes:
+            - name: mirror
+              persistentVolumeClaim:
+                claimName: {{ .Release.Name }}-ubuntu-pvc
 
 ---
 
@@ -101,9 +118,15 @@ spec:
               image: "{{ .Values.mirror.debian.image.repository }}:{{ .Values.mirror.debian.image.tag | default .Chart.AppVersion }}"
               env:
                 - name: SYNC_TIMEOUT_MIN
-                  value: {{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}
+                  value: "{{ .Values.mirror.debian.update.activeDeadlineMinutes }}"
+              volumeMounts:
+                - name: mirror
+                  mountPath: "/var/spool/apt-mirror/mirror/ftp.jp.debian.org/debian"
           restartPolicy: OnFailure
-
+          volumes:
+            - name: mirror
+              persistentVolumeClaim:
+                claimName: {{ .Release.Name }}-debian-pvc
 
 ---
 
@@ -125,8 +148,15 @@ spec:
               image: "{{ .Values.mirror.raspbian.image.repository }}:{{ .Values.mirror.raspbian.image.tag | default .Chart.AppVersion }}"
               env:
                 - name: SYNC_TIMEOUT_MIN
-                  value: {{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}
+                  value: "{{ .Values.mirror.raspbian.update.activeDeadlineMinutes }}"
+              volumeMounts:
+                - name: mirror
+                  mountPath: "/var/spool/apt-mirror/mirror/archive.raspbian.org/raspbian"
           restartPolicy: OnFailure
+          volumes:
+            - name: mirror
+              persistentVolumeClaim:
+                claimName: {{ .Release.Name }}-raspbian-pvc
 
 ---
 
@@ -148,13 +178,18 @@ spec:
               image: "{{ .Values.mirror.gentoo.image.repository }}:{{ .Values.mirror.gentoo.image.tag | default .Chart.AppVersion }}"
               env:
                 - name: SYNC_TIMEOUT_MIN
-                  value: {{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}
+                  value: "{{ .Values.mirror.gentoo.update.activeDeadlineMinutes }}"
               volumeMounts:
+                - name: mirror
+                  mountPath: "/var/spool/portage-mirror"
                 - name: exclude-txt
                   mountPath: "/opt/exclude.txt"
                   readOnly: true
           restartPolicy: OnFailure
           volumes:
+            - name: mirror
+              persistentVolumeClaim:
+                claimName: {{ .Release.Name }}-gentoo-pvc
             - name: exclude-txt
               configMap:
                 name: {{ .Release.Name }}-gentoo-mirror-configmap
