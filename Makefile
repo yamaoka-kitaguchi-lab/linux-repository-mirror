@@ -27,6 +27,8 @@ install:
 	systemctl daemon-reload
 	systemctl enable --now update-mirror.service
 	systemctl enable --now update-mirror-once-a-day.service
+	systemctl enable --now update-mirror.timer
+	systemctl enable --now update-mirror-once-a-day.timer
 	mkdir -p /srv/mirror/archlinux
 	mkdir -p /srv/mirror/manjaro
 	mkdir -p /srv/mirror/debian
@@ -35,6 +37,8 @@ install:
 	mkdir -p /srv/mirror/gentoo
 
 uninstall:
+	systemctl disable --now update-mirror.timer
+	systemctl disable --now update-mirror-once-a-day.timer
 	systemctl disable --now update-mirror.service
 	systemctl disable --now update-mirror-once-a-day.service
 	rm -f /etc/systemd/system/update-mirror.service
