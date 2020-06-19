@@ -11,7 +11,7 @@ metadata:
 
 spec:
   replicas: {{ .Values.nginx.replicaCount }}
-  revisionHistroyLimit: 10
+  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: nginx-all
