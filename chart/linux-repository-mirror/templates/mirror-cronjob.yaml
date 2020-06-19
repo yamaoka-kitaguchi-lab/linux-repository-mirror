@@ -6,8 +6,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.archlinux.update.schedule }}"
+  concurrencyPolicy: Forbid
   jobTemplate:
-    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
@@ -23,9 +23,9 @@ spec:
                   readOnly: true
           restartPolicy: OnFailure
           volumes:
-            name: exclude-txt
-            configMap:
-              name: {{ .Release.Name }}-archlinux-mirror-configmap
+            - name: exclude-txt
+              configMap:
+                name: {{ .Release.Name }}-archlinux-mirror-configmap
 
 ---
 
@@ -37,8 +37,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.manjaro.update.schedule }}"
+  concurrencyPolicy: Forbid
   jobTemplate:
-    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
@@ -54,9 +54,9 @@ spec:
                   readOnly: true
           restartPolicy: OnFailure
           volumes:
-            name: exclude-txt
-            configMap:
-              name: {{ .Release.Name }}-manjaro-mirror-configmap
+            - name: exclude-txt
+              configMap:
+                name: {{ .Release.Name }}-manjaro-mirror-configmap
 
 ---
 
@@ -68,8 +68,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.ubuntu.update.schedule }}"
+  concurrencyPolicy: Forbid
   jobTemplate:
-    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
@@ -91,8 +91,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.debian.update.schedule }}"
+  concurrencyPolicy: Forbid
   jobTemplate:
-    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
@@ -115,8 +115,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.raspbian.update.schedule }}"
+  concurrencyPolicy: Forbid
   jobTemplate:
-    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
@@ -138,8 +138,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.gentoo.update.schedule }}"
+  concurrencyPolicy: Forbid
   jobTemplate:
-    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
@@ -155,7 +155,7 @@ spec:
                   readOnly: true
           restartPolicy: OnFailure
           volumes:
-            name: exclude-txt
-            configMap:
-              name: {{ .Release.Name }}-gentoo-mirror-configmap
+            - name: exclude-txt
+              configMap:
+                name: {{ .Release.Name }}-gentoo-mirror-configmap
 
