@@ -53,7 +53,7 @@ spec:
       volumes:
         - name: archlinux
           persistentVolumeClaim:
-            claimName: {{ .Values.mirror.archlinux.pv.name }}
+            claimName: {{ .Release.Name }}-archlinux-pvc
         - name: manjaro
           persistentVolumeClaim:
-            claimName: {{ .Values.mirror.manjaro.pv.name }}
+            claimName: {{ .Release.Name }}-manjaro-pvc

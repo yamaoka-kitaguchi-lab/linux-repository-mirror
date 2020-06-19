@@ -2,6 +2,8 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: archlinux-mirror-pv
+  labels:
+    name: archlinux-mirror-pv
 spec:
   storageClassName: manual
   capacity:
@@ -17,6 +19,8 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: manjaro-mirror-pv
+  labels:
+    name: manjaro-mirror-pv
 spec:
   storageClassName: manual
   capacity:
@@ -32,6 +36,8 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: ubuntu-mirror-pv
+  labels:
+    name: ubuntu-mirror-pv
 spec:
   storageClassName: manual
   capacity:
@@ -47,6 +53,8 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: debian-mirror-pv
+  labels:
+    name: debian-mirror-pv
 spec:
   storageClassName: manual
   capacity:
@@ -62,6 +70,8 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: raspbian-mirror-pv
+  labels:
+    name: raspbian-mirror-pv
 spec:
   storageClassName: manual
   capacity:
@@ -77,6 +87,8 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: gentoo-mirror-pv
+  labels:
+    name: gentoo-mirror-pv
 spec:
   storageClassName: manual
   capacity:

@@ -50,4 +50,4 @@ spec:
       volumes:
         - name: gentoo
           persistentVolumeClaim:
-            claimName: {{ .Values.mirror.gentoo.pv.name }}
+            claimName: {{ .Release.Name }}-gentoo-pvc
