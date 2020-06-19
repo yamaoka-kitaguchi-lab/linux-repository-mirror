@@ -1,0 +1,105 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-archlinux-pvc
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 120Gi
+  selector:
+    matchLabels:
+      name: {{ .Values.archlinux-mirror.pv.name }}
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-manjaro-pvc
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 350Gi
+  selector:
+    matchLabels:
+      name: {{ .Values.manjaro-mirror.pv.name }}
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-ubuntu-pvc
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 450Gi
+  selector:
+    matchLabels:
+      name: {{ .Values.ubuntu-mirror.pv.name }}
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-debian-pvc
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 400Gi
+  selector:
+    matchLabels:
+      name: {{ .Values.debian-mirror.pv.name }}
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-raspbian-pvc
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 250Gi
+  selector:
+    matchLabels:
+      name: {{ .Values.raspbian-mirror.pv.name }}
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-gentoo-pvc
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 850Gi
+  selector:
+    matchLabels:
+      name: {{ .Values.gentoo-mirror.pv.name }}

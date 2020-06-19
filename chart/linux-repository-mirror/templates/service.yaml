@@ -1,15 +1,77 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "linux-repository-mirror.fullname" . }}
+  name: {{ .Release.Name }}-nginx-all-service
   labels:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: ClusterIP
+  selector:
+    app: nginx-all
   ports:
-    - port: {{ .Values.service.port }}
+    - port: http
       targetPort: http
       protocol: TCP
       name: http
+  externalIPs:
+    - {{ .Values.nginx.externalIPs.all }}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-nginx-apt-service
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
   selector:
-    {{- include "linux-repository-mirror.selectorLabels" . | nindent 4 }}
+    app: nginx-apt
+  ports:
+    - port: http
+      targetPort: http
+      protocol: TCP
+      name: http
+  externalIPs:
+    - {{ .Values.nginx.externalIPs.apt }}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-nginx-pacman-service
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx-pacman
+  ports:
+    - port: http
+      targetPort: http
+      protocol: TCP
+      name: http
+  externalIPs:
+    - {{ .Values.nginx.externalIPs.pacman }}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-nginx-portage-service
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx-portage
+  ports:
+    - port: http
+      targetPort: http
+      protocol: TCP
+      name: http
+  externalIPs:
+    - {{ .Values.nginx.externalIPs.portage }}

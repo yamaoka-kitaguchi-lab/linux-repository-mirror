@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ .Release.Name }}-nginx-all-deployment
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+
+spec:
+  replicas: {{ .Values.nginx.replicaCount }}
+  revisionHistroyLimit: 10
+  selector:
+    matchLabels:
+      app: nginx-all
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+
+  template:
+    metadata:
+      labels:
+        app: nginx-all
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-nginx-all
+          image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.nginx.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          volumeMounts:
+            - name: archlinux
+              mountPath: /usr/share/nginx/pacman/archlinux
+              readOnly: true
+            - name: manjaro
+              mountPath: /usr/share/nginx/pacman/manjaro
+              readOnly: true
+            - name: ubuntu
+              mountPath: /usr/share/nginx/apt/ubuntu
+              readOnly: true
+            - name: debian
+              mountPath: /usr/share/nginx/apt/debian
+              readOnly: true
+            - name: raspbian
+              mountPath: /usr/share/nginx/apt/raspbian
+              readOnly: true
+            - name: gentoo
+              mountPath: /usr/share/nginx/portage/gentoo
+              readOnly: true
+      volumes:
+        - name: archlinux
+          persistentVolumeClaim:
+            claimName: {{ .Values.archlinux-mirror.pv.name }}
+        - name: manjaro
+          persistentVolumeClaim:
+            claimName: {{ .Values.manjaro-mirror.pv.name }}
+        - name: ubuntu
+          persistentVolumeClaim:
+            claimName: {{ .Values.ubuntu-mirror.pv.name }}
+        - name: debian
+          persistentVolumeClaim:
+            claimName: {{ .Values.debian-mirror.pv.name }}
+        - name: raspbian
+          persistentVolumeClaim:
+            claimName: {{ .Values.raspbian-mirror.pv.name }}
+        - name: gentoo
+          persistentVolumeClaim:
+            claimName: {{ .Values.gentoo-mirror.pv.name }}

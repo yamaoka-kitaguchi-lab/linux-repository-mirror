@@ -1,0 +1,71 @@
+nginx:
+  image:
+    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/mirror-index-nginx
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicaCount: 2
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 60%
+  service:
+    externalIPs:
+      all: 10.0.5.11
+      apt: 10.0.5.12
+      pacman: 10.0.5.13
+      portage: 10.0.5.14
+
+archlinux-mirror:
+  image:
+    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror
+    tag: latest
+    pullPolicy: IfNotPresent
+  updateInterval: 20m
+  pv:
+    name: archlinux-mirror-pv
+
+manjaro-mirror:
+  image:
+    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror
+    tag: latest
+    pullPolicy: IfNotPresent
+  updateInterval: 20m
+  pv:
+    name: manjaro-mirror-pv
+
+ubuntu-mirror:
+  image:
+    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror
+    tag: latest
+    pullPolicy: IfNotPresent
+  updateInterval: 20m
+  pv:
+    name: ubuntu-mirror-pv
+
+debian-mirror:
+  image:
+    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/debian-mirror
+    tag: latest
+    pullPolicy: IfNotPresent
+  updateInterval: 20m
+  pv:
+    name: debian-mirror-pv
+
+raspbian-mirror:
+  image:
+    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/raspbian-mirror
+    tag: latest
+    pullPolicy: IfNotPresent
+  updateInterval: 20m
+  pv:
+    name: raspbian-mirror-pv
+
+gentoo-mirror:
+  image:
+    repository: yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror
+    tag: latest
+    pullPolicy: IfNotPresent
+  updateInterval: 24h
+  pv:
+    name: gentoo-mirror-pv

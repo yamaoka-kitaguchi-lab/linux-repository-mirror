@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ .Release.Name }}-nginx-portage-deployment
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+
+spec:
+  replicas: {{ .Values.nginx.replicaCount }}
+  revisionHistroyLimit: 10
+  selector:
+    matchLabels:
+      app: nginx-portage
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+
+  template:
+    metadata:
+      labels:
+        app: nginx-portage
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-nginx-portage
+          image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.nginx.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          volumeMounts:
+            - name: gentoo
+              mountPath: /usr/share/nginx/portage/gentoo
+              readOnly: true
+      volumes:
+        - name: gentoo
+          persistentVolumeClaim:
+            claimName: {{ .Values.gentoo-mirror.pv.name }}
