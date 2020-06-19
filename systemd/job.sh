@@ -16,14 +16,14 @@ prepare(){
 update_mirror(){
     local mirrors="debian raspbian ubuntu archlinux manjaro"
     (( $ONCE_A_DAY == 1 )) && mirrors="gentoo"
-    for mirror in mirrors; do
+    for mirror in $mirrors; do
         docker-compose up -d --remove-orphans update-$mirror
     done
 }
 
 publish_mirror(){
     local domains="all apt pacman portage"
-    for domain in domains; do
+    for domain in $domains; do
         docker-compose up -d --remove-orphans nginx-$domain
     done
 }

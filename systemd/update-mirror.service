@@ -3,7 +3,7 @@ Description=Update of Local Mirror Repositories (see: yamaoka-kitaguchi-lab/linu
 
 [Service]
 Type=simple
-ExecStart=/bin/sh /opt/linux-repository-mirror/systemd/job.sh
+ExecStart=/bin/bash /opt/linux-repository-mirror/systemd/job.sh
 
 [Install]
 WantedBy=multi-user.target

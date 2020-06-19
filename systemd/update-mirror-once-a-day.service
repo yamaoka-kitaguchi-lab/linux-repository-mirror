@@ -3,7 +3,7 @@ Description=Update of Local Mirror Repositories, once a day (see: yamaoka-kitagu
 
 [Service]
 Type=simple
-ExecStart=/bin/sh /opt/linux-repository-mirror/systemd/job.sh --once-a-day
+ExecStart=/bin/bash /opt/linux-repository-mirror/systemd/job.sh --once-a-day
 
 [Install]
 WantedBy=multi-user.target
