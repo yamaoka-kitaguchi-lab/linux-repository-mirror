@@ -10,7 +10,6 @@ spec:
   resources:
     requests:
       storage: 120Gi
-  storageClassName: {{ .Values.mirror.archlinux.pv.storageClassName }}
   selector:
     matchLabels:
       name: {{ .Values.mirror.archlinux.pv.name }}
@@ -29,7 +28,6 @@ spec:
   resources:
     requests:
       storage: 350Gi
-  storageClassName: {{ .Values.mirror.manjaro.pv.storageClassName }}
   selector:
     matchLabels:
       name: {{ .Values.mirror.manjaro.pv.name }}
@@ -48,7 +46,6 @@ spec:
   resources:
     requests:
       storage: 450Gi
-  storageClassName: {{ .Values.mirror.ubuntu.pv.storageClassName }}
   selector:
     matchLabels:
       name: {{ .Values.mirror.ubuntu.pv.name }}
@@ -67,7 +64,6 @@ spec:
   resources:
     requests:
       storage: 400Gi
-  storageClassName: {{ .Values.mirror.debian.pv.storageClassName }}
   selector:
     matchLabels:
       name: {{ .Values.mirror.debian.pv.name }}
@@ -86,7 +82,6 @@ spec:
   resources:
     requests:
       storage: 250Gi
-  storageClassName: {{ .Values.mirror.raspbian.pv.storageClassName }}
   selector:
     matchLabels:
       name: {{ .Values.mirror.raspbian.pv.name }}
@@ -105,7 +100,6 @@ spec:
   resources:
     requests:
       storage: 850Gi
-  storageClassName: {{ .Values.mirror.gentoo.pv.storageClassName }}
   selector:
     matchLabels:
       name: {{ .Values.mirror.gentoo.pv.name }}

@@ -26,7 +26,6 @@ mirror:
       activeDeadlineMinutes: 60
     pv:
       name: archlinux-mirror-pv
-      storageClassName: manual
 
   manjaro:
     image:
@@ -38,7 +37,6 @@ mirror:
       activeDeadlineMinutes: 60
     pv:
       name: manjaro-mirror-pv
-      storageClassName: manual
 
   ubuntu:
     image:
@@ -50,7 +48,6 @@ mirror:
       activeDeadlineMinutes: 60
     pv:
       name: ubuntu-mirror-pv
-      storageClassName: manual
 
   debian:
     image:
@@ -62,7 +59,6 @@ mirror:
       activeDeadlineMinutes: 60
     pv:
       name: debian-mirror-pv
-      storageClassName: manual
 
   raspbian:
     image:
@@ -74,7 +70,6 @@ mirror:
       activeDeadlineMinutes: 60
     pv:
       name: raspbian-mirror-pv
-      storageClassName: manual
 
   gentoo:
     image:
@@ -86,4 +81,3 @@ mirror:
       activeDeadlineMinutes: 60
     pv:
       name: gentoo-mirror-pv
-      storageClassName: manual
