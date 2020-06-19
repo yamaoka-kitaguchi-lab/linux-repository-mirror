@@ -1,0 +1,30 @@
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-archlinux-mirror-configmap
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+data:
+  exclude.txt: |-
+    # sync all
+
+---
+
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-manjaro-mirror-configmap
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+data:
+  exclude.txt: |-
+    # sync all
+
+---
+
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-gentoo-mirror-configmap
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+data:
+  exclude.txt: |-
+    # sync all

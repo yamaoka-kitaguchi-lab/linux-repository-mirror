@@ -1,0 +1,155 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-archlinux-cronjob
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.archlinux-mirror.update.schedule }}
+  jobTemplate:
+    spec:
+      completions: 1
+      parallelism: 1
+      backoffLimit: 3
+      template:
+        spec:
+          containers:
+            - name: {{ .Release.Name }}-archlinux-cronjob
+              image: "{{ .Values.archlinux-mirror.image.repository }}:{{ .Values.archlinux-mirror.image.tag | default .Chart.AppVersion }}"
+              volumeMounts:
+                - name: exclude-txt
+                  mountPath: "/opt/exclude.txt"
+                  readOnly: true
+          restartPolicy: OnFailure
+          volumes:
+            name: exclude-txt
+            configMap:
+              name: {{ .Release.Name }}-archlinux-mirror-configmap
+
+---
+
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-manjaro-cronjob
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.manjaro-mirror.update.schedule }}
+  jobTemplate:
+    spec:
+      completions: 1
+      parallelism: 1
+      backoffLimit: 3
+      template:
+        spec:
+          containers:
+            - name: {{ .Release.Name }}-manjaro-cronjob
+              image: "{{ .Values.manjaro-mirror.image.repository }}:{{ .Values.manjaro-mirror.image.tag | default .Chart.AppVersion }}"
+              volumeMounts:
+                - name: exclude-txt
+                  mountPath: "/opt/exclude.txt"
+                  readOnly: true
+          restartPolicy: OnFailure
+          volumes:
+            name: exclude-txt
+            configMap:
+              name: {{ .Release.Name }}-manjaro-mirror-configmap
+
+---
+
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-ubuntu-cronjob
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.ubuntu-mirror.update.schedule }}
+  jobTemplate:
+    spec:
+      completions: 1
+      parallelism: 1
+      backoffLimit: 3
+      template:
+        spec:
+          containers:
+            - name: {{ .Release.Name }}-ubuntu-cronjob
+              image: "{{ .Values.ubuntu-mirror.image.repository }}:{{ .Values.ubuntu-mirror.image.tag | default .Chart.AppVersion }}"
+          restartPolicy: OnFailure
+
+---
+
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-debian-cronjob
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.debian-mirror.update.schedule }}
+  jobTemplate:
+    spec:
+      completions: 1
+      parallelism: 1
+      backoffLimit: 3
+      template:
+        spec:
+          containers:
+            - name: {{ .Release.Name }}-debian-cronjob
+              image: "{{ .Values.debian-mirror.image.repository }}:{{ .Values.debian-mirror.image.tag | default .Chart.AppVersion }}"
+          restartPolicy: OnFailure
+
+
+---
+
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-raspbian-cronjob
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.raspbian-mirror.update.schedule }}
+  jobTemplate:
+    spec:
+      completions: 1
+      parallelism: 1
+      backoffLimit: 3
+      template:
+        spec:
+          containers:
+            - name: {{ .Release.Name }}-raspbian-cronjob
+              image: "{{ .Values.raspbian-mirror.image.repository }}:{{ .Values.raspbian-mirror.image.tag | default .Chart.AppVersion }}"
+          restartPolicy: OnFailure
+
+---
+
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-gentoo-cronjob
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.raspbian-mirror.update.schedule }}
+  jobTemplate:
+    spec:
+      completions: 1
+      parallelism: 1
+      backoffLimit: 3
+      template:
+        spec:
+          containers:
+            - name: {{ .Release.Name }}-gentoo-cronjob
+              image: "{{ .Values.gentoo-mirror.image.repository }}:{{ .Values.gentoo-mirror.image.tag | default .Chart.AppVersion }}"
+              volumeMounts:
+                - name: exclude-txt
+                  mountPath: "/opt/exclude.txt"
+                  readOnly: true
+          restartPolicy: OnFailure
+          volumes:
+            name: exclude-txt
+            configMap:
+              name: {{ .Release.Name }}-gentoo-mirror-configmap
+

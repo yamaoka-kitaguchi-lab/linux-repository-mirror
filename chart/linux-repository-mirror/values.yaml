@@ -21,7 +21,8 @@ archlinux-mirror:
     repository: yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror
     tag: latest
     pullPolicy: IfNotPresent
-  updateInterval: 20m
+  update:
+    schedule: "*/20 * * * *"
   pv:
     name: archlinux-mirror-pv
 
@@ -30,7 +31,8 @@ manjaro-mirror:
     repository: yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror
     tag: latest
     pullPolicy: IfNotPresent
-  updateInterval: 20m
+  update:
+    schedule: "*/20 * * * *"
   pv:
     name: manjaro-mirror-pv
 
@@ -39,7 +41,8 @@ ubuntu-mirror:
     repository: yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror
     tag: latest
     pullPolicy: IfNotPresent
-  updateInterval: 20m
+  update:
+    schedule: "*/20 * * * *"
   pv:
     name: ubuntu-mirror-pv
 
@@ -48,7 +51,8 @@ debian-mirror:
     repository: yamaoka-kitaguchi-lab/linux-repository-mirror/debian-mirror
     tag: latest
     pullPolicy: IfNotPresent
-  updateInterval: 20m
+  update:
+    schedule: "*/20 * * * *"
   pv:
     name: debian-mirror-pv
 
@@ -57,7 +61,8 @@ raspbian-mirror:
     repository: yamaoka-kitaguchi-lab/linux-repository-mirror/raspbian-mirror
     tag: latest
     pullPolicy: IfNotPresent
-  updateInterval: 20m
+  update:
+    schedule: "*/20 * * * *"
   pv:
     name: raspbian-mirror-pv
 
@@ -66,6 +71,7 @@ gentoo-mirror:
     repository: yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror
     tag: latest
     pullPolicy: IfNotPresent
-  updateInterval: 24h
+  update:
+    schedule: "0 0 * * *"
   pv:
     name: gentoo-mirror-pv

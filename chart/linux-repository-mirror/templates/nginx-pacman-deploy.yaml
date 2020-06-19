@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-nginx-pacman-deployment
   labels:
+    type: nginx-deploy
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
   annotations:
     deployment.kubernetes.io/revision: "1"
