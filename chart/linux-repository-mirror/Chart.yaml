@@ -1,0 +1,13 @@
+apiVersion: v2
+name: linux-repository-mirror
+description: A Helm chart building local package mirrors on kubernetes
+type: application
+version: 0.1.0
+home: https://github.com/yamaoka-kitaguchi-lab/linux-repository-mirror
+sources:
+  - https://github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/charts
+maintainers:
+  - name: Taichi MIYA
+    email: tmiya@protonmail.ch
+appVersion: 1.16.0
+deprecated: false

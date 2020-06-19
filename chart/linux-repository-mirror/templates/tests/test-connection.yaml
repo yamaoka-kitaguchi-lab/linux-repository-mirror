@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "linux-repository-mirror.fullname" . }}-test-connection"
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "linux-repository-mirror.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
