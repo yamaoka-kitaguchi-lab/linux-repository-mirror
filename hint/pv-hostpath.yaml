@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: archlinux-mirror-pv
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 120Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /svr/mirror/archlinux
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: manjaro-mirror-pv
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 350Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /svr/mirror/manjaro
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ubuntu-mirror-pv
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 450Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /svr/mirror/ubuntu
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: debian-mirror-pv
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 400Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /svr/mirror/debian
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: raspbian-mirror-pv
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 250Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /svr/mirror/raspbian
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: raspbian-mirror-pv
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 850Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /svr/mirror/gentoo
