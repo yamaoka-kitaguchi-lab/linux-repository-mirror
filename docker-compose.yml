@@ -14,7 +14,7 @@ x-logging: &default-logging
 
 x-update-mirror: &update-mirror-template
   restart: on-failure:3
-  stop_signal: SIGTERM
+  stop_signal: SIGKILL
   logging: *default-logging
   environment:
     SYNC_TIMEOUT_MIN: 60
@@ -24,7 +24,7 @@ x-nginx: &nginx-template
   build:
     context: docker/nginx
   restart: always
-  stop_signal: SIGTERM
+  stop_signal: SIGKILL
   logging: *default-logging
   healthcheck:
     <<: *default-healthcheck
