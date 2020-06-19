@@ -1,16 +1,16 @@
 {{- if .Values.nginx.autoscaling.enabled }}
+
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "linux-repository-mirror.fullname" . }}
+  name: {{ .Release.Name }}-nginx-all-hpa
   labels:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    labels:
-      type: nginx-deploy
+    name: {{ .Release.Name }}-nginx-all-deployment
   minReplicas: {{ .Values.nginx.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.nginx.autoscaling.maxReplicas }}
   metrics:
@@ -26,4 +26,92 @@ spec:
         name: memory
         targetAverageUtilization: {{ .Values.nginx.autoscaling.targetMemoryUtilizationPercentage }}
   {{- end }}
+
+---
+
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Release.Name }}-nginx-apt-hpa
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-nginx-apt-deployment
+  minReplicas: {{ .Values.nginx.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.nginx.autoscaling.maxReplicas }}
+  metrics:
+  {{- if .Values.nginx.autoscaling.targetCPUUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: {{ .Values.nginx.autoscaling.targetCPUUtilizationPercentage }}
+  {{- end }}
+  {{- if .Values.nginx.autoscaling.targetMemoryUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: {{ .Values.nginx.autoscaling.targetMemoryUtilizationPercentage }}
+  {{- end }}
+
+---
+
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Release.Name }}-nginx-pacman-hpa
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-nginx-pacman-deployment
+  minReplicas: {{ .Values.nginx.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.nginx.autoscaling.maxReplicas }}
+  metrics:
+  {{- if .Values.nginx.autoscaling.targetCPUUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: {{ .Values.nginx.autoscaling.targetCPUUtilizationPercentage }}
+  {{- end }}
+  {{- if .Values.nginx.autoscaling.targetMemoryUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: {{ .Values.nginx.autoscaling.targetMemoryUtilizationPercentage }}
+  {{- end }}
+
+---
+
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Release.Name }}-nginx-portage-hpa
+  labels:
+    {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-nginx-portage-deployment
+  minReplicas: {{ .Values.nginx.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.nginx.autoscaling.maxReplicas }}
+  metrics:
+  {{- if .Values.nginx.autoscaling.targetCPUUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: {{ .Values.nginx.autoscaling.targetCPUUtilizationPercentage }}
+  {{- end }}
+  {{- if .Values.nginx.autoscaling.targetMemoryUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: {{ .Values.nginx.autoscaling.targetMemoryUtilizationPercentage }}
+  {{- end }}
+
 {{- end }}

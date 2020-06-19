@@ -8,7 +8,7 @@ nginx:
     enabled: true
     minReplicas: 1
     maxReplicas: 4
-    targetCPUUtilizationPercentage: 60%
+    targetCPUUtilizationPercentage: 60
   externalIPs:
     all: 10.0.5.11
     apt: 10.0.5.12
