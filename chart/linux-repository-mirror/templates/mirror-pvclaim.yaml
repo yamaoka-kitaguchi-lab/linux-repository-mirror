@@ -4,6 +4,8 @@ metadata:
   name: {{ .Release.Name }}-archlinux-pvc
   labels:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+  annotations:
+    volume.beta.kubernetes.io/storage-class: ""
 spec:
   accessModes:
     - ReadWriteOnce
@@ -22,6 +24,8 @@ metadata:
   name: {{ .Release.Name }}-manjaro-pvc
   labels:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+  annotations:
+    volume.beta.kubernetes.io/storage-class: ""
 spec:
   accessModes:
     - ReadWriteOnce
@@ -40,6 +44,8 @@ metadata:
   name: {{ .Release.Name }}-ubuntu-pvc
   labels:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+  annotations:
+    volume.beta.kubernetes.io/storage-class: ""
 spec:
   accessModes:
     - ReadWriteOnce
@@ -58,6 +64,8 @@ metadata:
   name: {{ .Release.Name }}-debian-pvc
   labels:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+  annotations:
+    volume.beta.kubernetes.io/storage-class: ""
 spec:
   accessModes:
     - ReadWriteOnce
@@ -76,6 +84,8 @@ metadata:
   name: {{ .Release.Name }}-raspbian-pvc
   labels:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+  annotations:
+    volume.beta.kubernetes.io/storage-class: ""
 spec:
   accessModes:
     - ReadWriteOnce
@@ -94,6 +104,8 @@ metadata:
   name: {{ .Release.Name }}-gentoo-pvc
   labels:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
+  annotations:
+    volume.beta.kubernetes.io/storage-class: ""
 spec:
   accessModes:
     - ReadWriteOnce
