@@ -1,8 +1,23 @@
+install-compose:
+	curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+
 update:
 	git pull origin master
 	docker-compose rm -f
 	docker-compose build --no-cache --force-rm
 	docker-compose up -d --remove-orphans
+
+sync:
+	docker-compose rm -f
+	docker-compose up -d  update-archlinux update-manjaro update-debian update-ubuntu update-gentoo
+
+publish:
+	docker-compose rm -f
+	docker-compose up -d  nginx-all nginx-pacman nginx-apt nginx-portage
+
+log:
+	docker-compose logs -f update-archlinux update-manjaro update-debian update-ubuntu update-gentoo
 
 install:
 	cp ./systemd/update-mirror.service /etc/systemd/system/
@@ -27,3 +42,6 @@ uninstall:
 	rm -f /etc/systemd/system/update-mirror-once-a-day.service
 	rm -f /etc/systemd/system/update-mirror-once-a-day.timer
 	systemctl daemon-reload
+
+destroy:
+	rm -rf /srv/mirror
