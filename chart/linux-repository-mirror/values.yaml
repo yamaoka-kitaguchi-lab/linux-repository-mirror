@@ -5,7 +5,7 @@ nginx:
     pullPolicy: IfNotPresent
   replicaCount: 2
   autoscaling:
-    enabled: true
+    enabled: false
     minReplicas: 1
     maxReplicas: 4
     targetCPUUtilizationPercentage: 60
