@@ -7,16 +7,16 @@ metadata:
 spec:
   schedule: "{{ .Values.mirror.archlinux.update.schedule }}"
   jobTemplate:
-    activeDeadlineSeconds: {{ .Values.mirror.archlinux.update.activeDeadlineSeconds }}
-    completions: 1
-    parallelism: 1
-    backoffLimit: 3
+    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
           containers:
             - name: {{ .Release.Name }}-archlinux-cronjob
               image: "{{ .Values.mirror.archlinux.image.repository }}:{{ .Values.mirror.archlinux.image.tag | default .Chart.AppVersion }}"
+              env:
+                - name: SYNC_TIMEOUT_MIN
+                  value: {{ .Values.mirror.archlinux.update.activeDeadlineMinutes }}
               volumeMounts:
                 - name: exclude-txt
                   mountPath: "/opt/exclude.txt"
@@ -38,16 +38,16 @@ metadata:
 spec:
   schedule: "{{ .Values.mirror.manjaro.update.schedule }}"
   jobTemplate:
-    activeDeadlineSeconds: {{ .Values.mirror.manjaro.update.activeDeadlineSeconds }}
-    completions: 1
-    parallelism: 1
-    backoffLimit: 3
+    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
           containers:
             - name: {{ .Release.Name }}-manjaro-cronjob
               image: "{{ .Values.mirror.manjaro.image.repository }}:{{ .Values.mirror.manjaro.image.tag | default .Chart.AppVersion }}"
+              env:
+                - name: SYNC_TIMEOUT_MIN
+                  value: {{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}
               volumeMounts:
                 - name: exclude-txt
                   mountPath: "/opt/exclude.txt"
@@ -69,16 +69,16 @@ metadata:
 spec:
   schedule: "{{ .Values.mirror.ubuntu.update.schedule }}"
   jobTemplate:
-    activeDeadlineSeconds: {{ .Values.mirror.ubuntu.update.activeDeadlineSeconds }}
-    completions: 1
-    parallelism: 1
-    backoffLimit: 3
+    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
           containers:
             - name: {{ .Release.Name }}-ubuntu-cronjob
               image: "{{ .Values.mirror.ubuntu.image.repository }}:{{ .Values.mirror.ubuntu.image.tag | default .Chart.AppVersion }}"
+              env:
+                - name: SYNC_TIMEOUT_MIN
+                  value: {{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}
           restartPolicy: OnFailure
 
 ---
@@ -92,16 +92,16 @@ metadata:
 spec:
   schedule: "{{ .Values.mirror.debian.update.schedule }}"
   jobTemplate:
-    activeDeadlineSeconds: {{ .Values.mirror.debian.update.activeDeadlineSeconds }}
-    completions: 1
-    parallelism: 1
-    backoffLimit: 3
+    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
           containers:
             - name: {{ .Release.Name }}-debian-cronjob
               image: "{{ .Values.mirror.debian.image.repository }}:{{ .Values.mirror.debian.image.tag | default .Chart.AppVersion }}"
+              env:
+                - name: SYNC_TIMEOUT_MIN
+                  value: {{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}
           restartPolicy: OnFailure
 
 
@@ -116,16 +116,16 @@ metadata:
 spec:
   schedule: "{{ .Values.mirror.raspbian.update.schedule }}"
   jobTemplate:
-    activeDeadlineSeconds: {{ .Values.mirror.raspbian.update.activeDeadlineSeconds }}
-    completions: 1
-    parallelism: 1
-    backoffLimit: 3
+    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
           containers:
             - name: {{ .Release.Name }}-raspbian-cronjob
               image: "{{ .Values.mirror.raspbian.image.repository }}:{{ .Values.mirror.raspbian.image.tag | default .Chart.AppVersion }}"
+              env:
+                - name: SYNC_TIMEOUT_MIN
+                  value: {{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}
           restartPolicy: OnFailure
 
 ---
@@ -139,16 +139,16 @@ metadata:
 spec:
   schedule: "{{ .Values.mirror.gentoo.update.schedule }}"
   jobTemplate:
-    activeDeadlineSeconds: {{ .Values.mirror.gentoo.update.activeDeadlineSeconds }}
-    completions: 1
-    parallelism: 1
-    backoffLimit: 3
+    concurrencyPolicy: Forbid
     spec:
       template:
         spec:
           containers:
             - name: {{ .Release.Name }}-gentoo-cronjob
               image: "{{ .Values.mirror.gentoo.image.repository }}:{{ .Values.mirror.gentoo.image.tag | default .Chart.AppVersion }}"
+              env:
+                - name: SYNC_TIMEOUT_MIN
+                  value: {{ .Values.mirror.manjaro.update.activeDeadlineMinutes }}
               volumeMounts:
                 - name: exclude-txt
                   mountPath: "/opt/exclude.txt"

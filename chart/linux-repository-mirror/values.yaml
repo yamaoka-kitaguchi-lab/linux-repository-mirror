@@ -23,7 +23,7 @@ mirror:
       pullPolicy: IfNotPresent
     update:
       schedule: "*/20 * * * *"
-      activeDeadlineSeconds: 7200
+      activeDeadlineMinutes: 60
     pv:
       name: archlinux-mirror-pv
 
@@ -34,6 +34,7 @@ mirror:
       pullPolicy: IfNotPresent
     update:
       schedule: "*/20 * * * *"
+      activeDeadlineMinutes: 60
     pv:
       name: manjaro-mirror-pv
 
@@ -44,6 +45,7 @@ mirror:
       pullPolicy: IfNotPresent
     update:
       schedule: "*/20 * * * *"
+      activeDeadlineMinutes: 60
     pv:
       name: ubuntu-mirror-pv
 
@@ -54,6 +56,7 @@ mirror:
       pullPolicy: IfNotPresent
     update:
       schedule: "*/20 * * * *"
+      activeDeadlineMinutes: 60
     pv:
       name: debian-mirror-pv
 
@@ -64,6 +67,7 @@ mirror:
       pullPolicy: IfNotPresent
     update:
       schedule: "*/20 * * * *"
+      activeDeadlineMinutes: 60
     pv:
       name: raspbian-mirror-pv
 
@@ -74,5 +78,6 @@ mirror:
       pullPolicy: IfNotPresent
     update:
       schedule: "0 0 * * *"
+      activeDeadlineMinutes: 60
     pv:
       name: gentoo-mirror-pv
