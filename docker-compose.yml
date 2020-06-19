@@ -51,7 +51,7 @@ services:
         context: manjaro
     <<: *update-mirror-template
     volumes:
-      - /srv/mirror/manjaro:/var/spool/manjaro-mirror
+      - /srv/mirror/manjaro:/var/spool/pacman-mirror
 
   update-debian:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/debian-mirror:latest
