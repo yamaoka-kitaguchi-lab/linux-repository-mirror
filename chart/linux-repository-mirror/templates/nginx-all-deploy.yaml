@@ -35,6 +35,9 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          resources:
+            requests:
+              cpu: "200m"
           livenessProbe:
             httpGet:
               path: /
