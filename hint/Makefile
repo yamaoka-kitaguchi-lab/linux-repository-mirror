@@ -1,4 +1,12 @@
-import:
+create-pv:
+	microk8s kubectl apply -f pv-hostpath.yaml
+
+deploy-metrics-server:
+	microk8s kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
+	microk8s kubectl top node
+	microk8s kubectl top pod
+
+import-image:
 	docker save docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror:latest > archlinux-mirror.tar
 	docker save docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror:latest > manjaro-mirror.tar
 	docker save docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror:latest > ubuntu-mirror.tar
@@ -22,7 +30,7 @@ import:
 	rm mirror-index-nginx.tar
 	microk8s ctr images ls
 
-retag:
+retag-image:
 	docker tag docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/archlinux-mirror:latest localhost:32000/archlinux-mirror:latest
 	docker tag docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/manjaro-mirror:latest localhost:32000/manjaro-mirror:latest
 	docker tag docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/ubuntu-mirror:latest localhost:32000/ubuntu-mirror:latest
@@ -31,7 +39,7 @@ retag:
 	docker tag docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror:latest localhost:32000/gentoo-mirror:latest
 	docker tag docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/mirror-index-nginx:latest localhost:32000/mirror-index-nginx:latest
 
-push:
+push-image:
 	docker push localhost:32000/archlinux-mirror:latest
 	docker push localhost:32000/manjaro-mirror:latest
 	docker push localhost:32000/ubuntu-mirror:latest
@@ -39,7 +47,3 @@ push:
 	docker push localhost:32000/raspbian-mirror:latest
 	docker push localhost:32000/gentoo-mirror:latest
 	docker push localhost:32000/mirror-index-nginx:latest
-
-createpv:
-	microk8s kubectl apply -f pv-hostpath.yaml
-
