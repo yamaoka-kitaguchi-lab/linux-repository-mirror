@@ -28,6 +28,13 @@ publish_mirror(){
     done
 }
 
+fix_permissions(){
+    (( $ONCE_A_DAY == 0 )) && return 0
+    chown root:docker -R /srv/mirror
+    chmod 775 /srv/mirror
+}
+
 prepare
 update_mirror
 publish_mirror
+fix_permissions
