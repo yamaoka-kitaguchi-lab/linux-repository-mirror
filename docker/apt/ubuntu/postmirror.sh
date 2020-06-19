@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SOURCE="rsync://ftp.jaist.ac.jp/pub/Linux/ubuntu"
-DEST="/var/spool/apt-mirror/mirror/ftp.jaist.ac.jp/ubuntu"
+SOURCE="rsync://jp.archive.ubuntu.com"
+DEST="/ubuntu"
 RSYNC_OPTS="-rtlHv --delete-after --delay-updates --copy-links --safe-links --max-delete=1000 --delete-excluded --exclude=.*"
 
 focal="focal focal-updates focal-backports focal-security focal-proposed"
