@@ -24,6 +24,8 @@ mirror:
     update:
       schedule: "*/20 * * * *"
       activeDeadlineMinutes: 60
+      failedHistoryLimit: 1
+      successfulHistoryLimit: 2
     pv:
       name: archlinux-mirror-pv
 
@@ -35,6 +37,8 @@ mirror:
     update:
       schedule: "*/20 * * * *"
       activeDeadlineMinutes: 60
+      failedHistoryLimit: 1
+      successfulHistoryLimit: 2
     pv:
       name: manjaro-mirror-pv
 
@@ -46,6 +50,8 @@ mirror:
     update:
       schedule: "*/20 * * * *"
       activeDeadlineMinutes: 60
+      failedHistoryLimit: 1
+      successfulHistoryLimit: 2
     pv:
       name: ubuntu-mirror-pv
 
@@ -57,6 +63,8 @@ mirror:
     update:
       schedule: "*/20 * * * *"
       activeDeadlineMinutes: 60
+      failedHistoryLimit: 1
+      successfulHistoryLimit: 2
     pv:
       name: debian-mirror-pv
 
@@ -68,6 +76,8 @@ mirror:
     update:
       schedule: "*/20 * * * *"
       activeDeadlineMinutes: 60
+      failedHistoryLimit: 1
+      successfulHistoryLimit: 2
     pv:
       name: raspbian-mirror-pv
 
@@ -79,5 +89,7 @@ mirror:
     update:
       schedule: "0 0 * * *"
       activeDeadlineMinutes: 60
+      failedHistoryLimit: 1
+      successfulHistoryLimit: 2
     pv:
       name: gentoo-mirror-pv

@@ -6,6 +6,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.archlinux.update.schedule }}"
+  failedJobsHistoryLimit: {{ .Values.mirror.archlinux.update.failedHistoryLimit }}
+  successfulJobsHistoryLimit: {{ .Values.mirror.archlinux.update.successfulHistoryLimit }}
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -43,6 +45,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.manjaro.update.schedule }}"
+  failedJobsHistoryLimit: {{ .Values.mirror.manjaro.update.failedHistoryLimit }}
+  successfulJobsHistoryLimit: {{ .Values.mirror.manjaro.update.successfulHistoryLimit }}
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -80,6 +84,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.ubuntu.update.schedule }}"
+  failedJobsHistoryLimit: {{ .Values.mirror.ubuntu.update.failedHistoryLimit }}
+  successfulJobsHistoryLimit: {{ .Values.mirror.ubuntu.update.successfulHistoryLimit }}
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -111,6 +117,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.debian.update.schedule }}"
+  failedJobsHistoryLimit: {{ .Values.mirror.debian.update.failedHistoryLimit }}
+  successfulJobsHistoryLimit: {{ .Values.mirror.debian.update.successfulHistoryLimit }}
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -142,6 +150,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.raspbian.update.schedule }}"
+  failedJobsHistoryLimit: {{ .Values.mirror.raspbian.update.failedHistoryLimit }}
+  successfulJobsHistoryLimit: {{ .Values.mirror.raspbian.update.successfulHistoryLimit }}
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -173,6 +183,8 @@ metadata:
     {{- include "linux-repository-mirror.labels" . | nindent 4 }}
 spec:
   schedule: "{{ .Values.mirror.gentoo.update.schedule }}"
+  failedJobsHistoryLimit: {{ .Values.mirror.gentoo.update.failedHistoryLimit }}
+  successfulJobsHistoryLimit: {{ .Values.mirror.gentoo.update.successfulHistoryLimit }}
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
