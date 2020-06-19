@@ -12,7 +12,7 @@ fi
 
 sync(){
     source /opt/mirror.conf
-    if [[ -n "$SORUCE" ]] || [[ -n "$REPOS" ]]; then
+    if [[ -z "$SOURCE" ]] || [[ -z "$REPOS" ]]; then
         echo "Required variable SOURCE or REPOS does not exist in mirror.conf"
         exit 127
     fi

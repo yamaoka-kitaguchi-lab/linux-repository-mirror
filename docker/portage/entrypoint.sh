@@ -13,7 +13,7 @@ fi
 
 sync(){
     source /opt/mirror.conf
-    if [[ -n "$MIRROR_U_SRC" ]] || [[ -n "$MIRROR_I_SRC" ]] || [[ -n "$MIRROR_I_REPO" ]]; then
+    if [[ -z "$MIRROR_U_SRC" ]] || [[ -z "$MIRROR_I_SRC" ]] || [[ -z "$MIRROR_I_REPO" ]]; then
         echo "Required variable MIRROR_U_SRC or MIRROR_I_SRC or MIRROR_I_REPO does not exist in mirror.conf"
         exit 127
     fi
