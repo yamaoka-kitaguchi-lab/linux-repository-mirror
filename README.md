@@ -147,6 +147,7 @@ Deploy mirrors. All mirrors are automatically synchronized and kept up to date b
 ## Mirroring details
 
 Each repository size is as of June 20, 2020.
+ALL means that the local mirror is a complete replication of the upper server.
 
 | Linux Distribution | Upstream Server | Syncing Repositories | Update Interval | Size |
 | :--- | :--- | :--- | :--- | :--- |
@@ -155,7 +156,7 @@ Each repository size is as of June 20, 2020.
 | Ubuntu | • [jp.archive.ubuntu.com](http://jp.archive.ubuntu.com/)<br>• [ftp.jaist.ac.jp](http://ftp.jaist.ac.jp/pub/Linux/ubuntu/) (for i18n support) | 20.04 LTS, 18.04 LTS | every 20 min. | 419GB |
 | Debian | • [ftp.jp.debian.org](http://ftp.jp.debian.org/debian/)<br>• [hanzubon.jp](https://hanzubon.jp/debian/) (for i18n support) | testing, 11, 10, 9 | every 20 min. | 365GB |
 | Raspbian | [archive.raspbian.org](http://archive.raspbian.org/raspbian/) | **ALL** | every 20 min. | 228GB |
-| Gentoo | [ftp.iij.ad.jp](http://ftp.iij.ad.jp/pub/linux/gentoo/) | **ALL** (w/ distfiles and packages) | [every 24 hours](https://www.gentoo.org/support/rsync-mirrors/) | 819GB |
+| Gentoo | • [rsync.jp.gentoo.org](rsync://rsync.jp.gentoo.org/gentoo-portage/)<br>• [ftp.iij.ad.jp](http://ftp.iij.ad.jp/pub/linux/gentoo) (for source) | **ALL** (w/ distfiles and packages) | [every 24 hours](https://www.gentoo.org/support/rsync-mirrors/) | 819GB |
 
 ## Hints and tips
 
@@ -175,7 +176,8 @@ This is especially useful for the initial synchronization, which requires a lot 
 
 ## Versioning
 
-The versioning scheme is [CalVer](https://calver.org/). For the versions available, see the [tags on this repository](https://github.com/SINDAN/sindan-docker/tags).
+Releases are managed in [CalVer](https://calver.org/) scheme and it is independent of chart versioning.
+For the versions available, see the [tags on this repository](https://github.com/SINDAN/sindan-docker/tags).
 
 ## License
 
