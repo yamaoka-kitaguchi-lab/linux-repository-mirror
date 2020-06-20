@@ -20,6 +20,10 @@ for repo in $REPOS; do
         echo "Syncing $repo/$d/i18n ..."
         rsync $RSYNC_OPTS ${SOURCE}/dists/${repo}/${d}/i18n/     ${DEST}/dists/${repo}/${d}/i18n/
         echo
+
+        echo "Syncing $repo/$d/cnf ..."
+        rsync $RSYNC_OPTS ${SOURCE}/dists/${repo}/${d}/cnf/     ${DEST}/dists/${repo}/${d}/cnf/
+        echo
     done
 done
 
