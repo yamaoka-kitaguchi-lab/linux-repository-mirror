@@ -149,14 +149,14 @@ Deploy mirrors. All mirrors are automatically synchronized and kept up to date b
 Each repository size is as of June 20, 2020.
 ALL means that the local mirror is a complete replication of the upper server.
 
-| Linux Distribution | Upstream Server | Syncing Repositories | Update Interval | Size |
+| Distribution | Upstream Server | Syncing Repositories | Update Interval | Size |
 | :--- | :--- | :--- | :--- | :--- |
 | ArchLinux | [jpn.mirror.pkgbuild.com](https://jpn.mirror.pkgbuild.com/) | **ALL** (only 64bit binaries) | every 20 min. | 96GB |
 | Manjaro | [ftp.tsukuba.wide.ad.jp](http://ftp.tsukuba.wide.ad.jp/Linux/manjaro/) | **ALL** (only 64bit binaries) | every 20 min. | 322GB |
 | Ubuntu | • [jp.archive.ubuntu.com](http://jp.archive.ubuntu.com/)<br>• [ftp.jaist.ac.jp](http://ftp.jaist.ac.jp/pub/Linux/ubuntu/) (for i18n support) | 20.04 LTS, 18.04 LTS | every 20 min. | 419GB |
 | Debian | • [ftp.jp.debian.org](http://ftp.jp.debian.org/debian/)<br>• [hanzubon.jp](https://hanzubon.jp/debian/) (for i18n support) | testing, 11, 10, 9 | every 20 min. | 365GB |
 | Raspbian | [archive.raspbian.org](http://archive.raspbian.org/raspbian/) | **ALL** | every 20 min. | 228GB |
-| Gentoo | • [rsync.jp.gentoo.org](rsync://rsync.jp.gentoo.org/gentoo-portage/)<br>• [ftp.iij.ad.jp](http://ftp.iij.ad.jp/pub/linux/gentoo) (for source) | **ALL** (w/ distfiles and packages) | [every 24 hours](https://www.gentoo.org/support/rsync-mirrors/) | 819GB |
+| Gentoo | • [rsync.jp.gentoo.org](rsync://rsync.jp.gentoo.org/gentoo-portage/)<br>• [ftp.iij.ad.jp](http://ftp.iij.ad.jp/pub/linux/gentoo) (for source) | **ALL**<br> (w/ distfiles and packages) | [every day](https://www.gentoo.org/support/rsync-mirrors/) | 819GB |
 
 ## Hints and tips
 
