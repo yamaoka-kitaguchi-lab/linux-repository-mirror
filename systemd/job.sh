@@ -14,7 +14,7 @@ prepare(){
 }
 
 update_mirror(){
-    local mirrors="debian raspbian ubuntu archlinux manjaro"
+    local mirrors="debian raspbian ubuntu cumulus archlinux manjaro"
     (( $ONCE_A_DAY == 1 )) && mirrors="gentoo"
     for mirror in $mirrors; do
         docker-compose up -d --remove-orphans update-$mirror

@@ -10,14 +10,14 @@ update:
 
 sync:
 	docker-compose rm -f
-	docker-compose up -d  update-archlinux update-manjaro update-debian update-ubuntu update-raspbian update-gentoo
+	docker-compose up -d  update-archlinux update-manjaro update-debian update-ubuntu update-raspbian update-cumulus update-gentoo
 
 publish:
 	docker-compose rm -f
 	docker-compose up -d  nginx-all nginx-pacman nginx-apt nginx-portage
 
 log:
-	docker-compose logs -f update-archlinux update-manjaro update-debian update-ubuntu update-raspbian update-gentoo
+	docker-compose logs -f update-archlinux update-manjaro update-debian update-ubuntu update-raspbian update-cumulus update-gentoo
 
 install:
 	cp ./systemd/update-mirror.service /etc/systemd/system/
