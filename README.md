@@ -11,7 +11,7 @@ Run linux repository mirrors with docker/kubernetes
 
 ## How to use: configure your linux to fetch from the local mirror
 
-As of June 20th, 2020, following six linux mirrors are available - see [Mirroring details](https://github.com/yamaoka-kitaguchi-lab/linux-repository-mirror#mirroring-details) for further information.
+As of August 10th, 2020, following seven linux mirrors are available - see [Mirroring details](https://github.com/yamaoka-kitaguchi-lab/linux-repository-mirror#mirroring-details) for further information.
 
 ### ArchLinux
 
@@ -72,6 +72,19 @@ Use the following command to replace the repository URLs from the official archi
 
 ```
 % sed -i.bak -e "s%raspbian.raspberrypi.org%apt.mirror.intra.net.ict.e.titech.ac.jp%g" /etc/apt/sources.list
+```
+
+### Cumulus
+
+This repository is for lab's external router [FS N5850-48S6Q](https://www.fs.com/products/75874.html) and is not intended to be used on any other machine.
+
+- http://mirror.intra.net.ict.e.titech.ac.jp/apt/cumulus
+- http://apt.mirror.intra.net.ict.e.titech.ac.jp/cumulus
+
+Use the following command to replace the repository URLs from the official archive to the local mirror - also refer to [the official documentation](https://support.cumulusnetworks.com/hc/en-us/articles/201787436-Hosting-an-Internal-Cumulus-Linux-Repository) as appropriate.
+
+```
+% sed -i.bak -e "s%repo3.cumulusnetworks.com/repo%apt.mirror.intra.net.ict.e.titech.ac.jp/cumulus%g" /etc/apt/sources.list
 ```
 
 ### Gentoo
@@ -155,7 +168,8 @@ ALL means that the local mirror is a complete replication of the upper server.
 | Manjaro | [ftp.tsukuba.wide.ad.jp](http://ftp.tsukuba.wide.ad.jp/Linux/manjaro/) | **ALL** (only 64bit binaries) | every 20 min. | 322GB |
 | Ubuntu | • [jp.archive.ubuntu.com](http://jp.archive.ubuntu.com/)<br>• [ftp.jaist.ac.jp](http://ftp.jaist.ac.jp/pub/Linux/ubuntu/) (for i18n support) | 20.04 LTS, 18.04 LTS | every 20 min. | 419GB |
 | Debian | • [ftp.jp.debian.org](http://ftp.jp.debian.org/debian/)<br>• [hanzubon.jp](https://hanzubon.jp/debian/) (for i18n support) | testing, 11, 10, 9 | every 20 min. | 365GB |
-| Raspbian | [archive.raspbian.org](http://archive.raspbian.org/raspbian/) | **ALL** | every 20 min. | 228GB |
+| Raspbian | [archive.raspbian.org](http://archive.raspbian.org/raspbian/) | **ALL** | every 20 min. | - |
+| Cumulus | [repo3.cumulusnetworks.com](http://repo3.cumulusnetworks.com/repo/) | w/o early-access | every 20 min. | 228GB |
 | Gentoo | • [rsync.jp.gentoo.org](rsync://rsync.jp.gentoo.org/gentoo-portage/)<br>• [ftp.iij.ad.jp](http://ftp.iij.ad.jp/pub/linux/gentoo) (for source) | **ALL**<br> (w/ distfiles and packages) | [every day](https://www.gentoo.org/support/rsync-mirrors/) | 819GB |
 
 ## Hints and tips
@@ -172,6 +186,8 @@ This is especially useful for the initial synchronization, which requires a lot 
 
 ## Known issues
 
+1. ArchLinux repository has not been updated due to the upper mirror failure ([#4](https://github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/issues/4))
+1. I18n support of Debian has been freezed due to the upper mirror failure ([#5](https://github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/issues/5))
 1. [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) doesn't work with microk8s ([#3](https://github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/issues/3))
 
 ## Versioning
