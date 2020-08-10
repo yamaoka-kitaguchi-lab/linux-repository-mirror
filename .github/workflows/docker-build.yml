@@ -86,6 +86,20 @@ jobs:
           snapshot: true
           tags: "latest"
 
+      - name: Build cumulus-mirror
+        uses: elgohr/Publish-Docker-Github-Action@master
+        env:
+          context: cumulus
+        with:
+          name: yamaoka-kitaguchi-lab/linux-repository-mirror/cumulus-mirror
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: docker.pkg.github.com
+          workdir: docker/apt
+          buildargs: context
+          snapshot: true
+          tags: "latest"
+
       - name: Build gentoo-mirror
         uses: elgohr/Publish-Docker-Github-Action@master
         env:
