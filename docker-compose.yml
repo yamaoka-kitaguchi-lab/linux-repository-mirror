@@ -83,6 +83,16 @@ services:
     volumes:
       - /srv/mirror/raspbian:/var/spool/apt-mirror/mirror/archive.raspbian.org/raspbian
 
+  update-cumulus:
+    image: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/cumulus-mirror:latest
+    build:
+      context: docker/apt
+      args:
+        context: cumulus
+    <<: *update-mirror-template
+    volumes:
+      - /srv/mirror/cumulus:/var/spool/apt-mirror/mirror/repo3.cumulusnetworks.com/repo
+
   update-gentoo:
     image: docker.pkg.github.com/yamaoka-kitaguchi-lab/linux-repository-mirror/gentoo-mirror:latest
     build:
@@ -103,6 +113,7 @@ services:
       - /srv/mirror/ubuntu:/usr/share/nginx/apt/ubuntu:ro
       - /srv/mirror/debian:/usr/share/nginx/apt/debian:ro
       - /srv/mirror/raspberrypi:/usr/share/nginx/apt/raspberrypi:ro
+      - /srv/mirror/cumulus:/usr/share/nginx/apt/cumulus:ro
       - /srv/mirror/archlinux:/usr/share/nginx/pacman/archlinux:ro
       - /srv/mirror/manjaro:/usr/share/nginx/pacman/manjaro:ro
       - /srv/mirror/gentoo:/usr/share/nginx/portage/gentoo:ro
@@ -116,6 +127,7 @@ services:
       - /srv/mirror/ubuntu:/usr/share/nginx/apt/ubuntu:ro
       - /srv/mirror/debian:/usr/share/nginx/apt/debian:ro
       - /srv/mirror/raspbian:/usr/share/nginx/apt/raspbian:ro
+      - /srv/mirror/cumulus:/usr/share/nginx/apt/cumulus:ro
 
   nginx-pacman:
     <<: *nginx-template
