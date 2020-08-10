@@ -168,8 +168,8 @@ ALL means that the local mirror is a complete replication of the upper server.
 | Manjaro | [ftp.tsukuba.wide.ad.jp](http://ftp.tsukuba.wide.ad.jp/Linux/manjaro/) | **ALL** (only 64bit binaries) | every 20 min. | 322GB |
 | Ubuntu | • [jp.archive.ubuntu.com](http://jp.archive.ubuntu.com/)<br>• [ftp.jaist.ac.jp](http://ftp.jaist.ac.jp/pub/Linux/ubuntu/) (for i18n support) | 20.04 LTS, 18.04 LTS | every 20 min. | 419GB |
 | Debian | • [ftp.jp.debian.org](http://ftp.jp.debian.org/debian/)<br>• [hanzubon.jp](https://hanzubon.jp/debian/) (for i18n support) | testing, 11, 10, 9 | every 20 min. | 365GB |
-| Raspbian | [archive.raspbian.org](http://archive.raspbian.org/raspbian/) | **ALL** | every 20 min. | - |
-| Cumulus | [repo3.cumulusnetworks.com](http://repo3.cumulusnetworks.com/repo/) | w/o early-access | every 20 min. | 228GB |
+| Raspbian | [archive.raspbian.org](http://archive.raspbian.org/raspbian/) | **ALL** | every 20 min. | 228GB |
+| Cumulus | [repo3.cumulusnetworks.com](http://repo3.cumulusnetworks.com/repo/) | w/o early-access | every 20 min. | - |
 | Gentoo | • [rsync.jp.gentoo.org](rsync://rsync.jp.gentoo.org/gentoo-portage/)<br>• [ftp.iij.ad.jp](http://ftp.iij.ad.jp/pub/linux/gentoo) (for source) | **ALL**<br> (w/ distfiles and packages) | [every day](https://www.gentoo.org/support/rsync-mirrors/) | 819GB |
 
 ## Hints and tips
